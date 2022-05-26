@@ -1,0 +1,64 @@
+html,
+.bodys {
+    font-family: Georgia;
+    position: relative;
+    margin: 0;
+    background-image: url("../recipeImages/silverware.jpg");
+    color: #404040;
+}
+
+p {
+    margin: 2px;
+}
+
+.mag10 {
+    margin-top: 20px;
+}
+
+.ine-through{
+    text-decoration: line-through;
+}
+
+.padd10 {
+    padding: 10px 0;
+}
+
+.title,
+.title-secon {
+    font-size: 22pt;
+    color: #A4A400;
+    background-color: #F0F0F0;
+    text-decoration: underline;
+    padding: 10px 0;
+    font-family: Georgia sans-serif;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.title-secon {
+    font-size: 18pt;
+    text-align: left;
+}
+
+.title-space {
+    letter-spacing: 0.25em;
+}
+
+.bg-yellow {
+    background-color: #FFFFA8;
+    margin: 20px 50px;
+    font-style: italic;
+}
+
+.yellow-underline {
+    text-decoration: underline;
+    color: #A4A400;
+}
+
+.footer {
+    width: 280px;
+    text-align: right;
+    margin: 20px 0;
+    font-family: monospace;
+    letter-spacing: 1px;
+}
