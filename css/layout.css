@@ -1,0 +1,110 @@
+.container {
+    background-color: rgb(16, 6, 0);
+    color: #fff;
+    margin: 9%;
+    font-family: sans-serif;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.hearder {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.txt-center,
+.txt-left {
+    padding-right: 30px;
+}
+
+.p-txt,
+.p-txt1 {
+    padding-bottom: 20px;
+    color: #5d5c5c;
+    font-weight: bold;
+    font-family: initial;
+    float: left;
+    width: 90%;
+}
+
+.p-txt1 {
+    width: 100%;
+}
+
+.padd-center {
+    margin-bottom: 30px;
+    font-style: italic;
+    padding-bottom: 20px;
+}
+
+.img-icon {
+    width: 15px;
+    height: 13px;
+    padding-right: 15px;
+    padding-top: 2px;
+}
+
+.img-icon-call {
+    width: 20px;
+    padding-top: 0;
+    height: 20px;
+    padding-right: 10px;
+}
+
+.menu {
+    padding-top: 20px;
+    float: left;
+}
+
+.menu-right {
+    padding-top: 20px;
+    float: right;
+}
+
+.menu-padd20 {
+    padding-right: 20px;
+}
+
+.insta-img {
+    /* width: 150px; */
+    width: 49%;
+    max-height: 150px;
+}
+
+.input-email {
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    background-color: #2a2a2a;
+    color: #fff;
+    border-color: #000;
+    border-width: 0;
+    width: 60%;
+}
+
+.btn-send {
+    padding: 10px;
+    background-color: #e29a00;
+    color: #fff;
+    border-color: #000;
+    margin-left: -15px;
+    font-weight: 600;
+    border-width: 0;
+    width: 25%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+input:focus-visible,
+.input-email:focus-visible {
+    outline: none;
+}
+
+.div-twetter {
+    float: left;
+    width: 9%;
+}
+
+.div-txt-twetter {
+    float: left;
+    width: 90%;
+}

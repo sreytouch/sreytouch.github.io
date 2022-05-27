@@ -1,0 +1,11 @@
+#sreytouch.github.io
+
+Lab2
+Pro1: Styling: Movie -> https://sreytouch.github.io/htmlSkeleton.html
+Pro2:  Layout: AboutMe and Pie
+-https://sreytouch.github.io/aboutMe.html
+-https://sreytouch.github.io/pie.html
+
+Lab3
+Pro1: design footer -> https://sreytouch.github.io/layout.html
+Pro2: design responsive -> https://sreytouch.github.io/responsiveDesign.html
