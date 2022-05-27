@@ -64,40 +64,21 @@ li {
 
 @media only screen and (max-width: 600px) {
     .body {
-        /* display: block;
-        position: relative; */
         position: relative;
         grid-template-columns: auto;
     }
 
     .col1 {
-        /* width: 49%;
-        float: left;
-        height: 32vh; */
-        float: left;
         height: 32vh;
     }
 
     .col2 {
-        /* width: 99%;
-        float: left;
-        height: 32vh; */
         width: 100%;
-        float: left;
         height: 32vh;
-        display: grid;
-        grid-template-columns: 100%;
     }
 
     .col3 {
-        /* width: 49%;
-        float: right;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 32vh; */
-        width: 49%;
-        float: right;
+        width: 50%;
         position: absolute;
         top: 0;
         right: 0;
