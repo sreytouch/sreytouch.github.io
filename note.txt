@@ -12,3 +12,6 @@ Pro2: design responsive -> https://sreytouch.github.io/responsiveDesign.html
 
 Lab4
 Pro1: Basic JavaScript​​​​​​​ -> https://sreytouch.github.io/JSintroLab.html
+
+Optional 
+Pro1: ASCII -> https://sreytouch.github.io/optional/ascii.html
