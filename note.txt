@@ -1,5 +1,9 @@
 #sreytouch.github.io
 
+Lab1
+Pro1: HomePage1 -> https://sreytouch.github.io/index.hmtl
+Pro2: HomePage2 -> https://sreytouch.github.io/index1.hmtl
+
 Lab2
 Pro1: Styling: Movie -> https://sreytouch.github.io/htmlSkeleton.html
 Pro2:  Layout: AboutMe and Pie
@@ -12,6 +16,7 @@ Pro2: design responsive -> https://sreytouch.github.io/responsiveDesign.html
 
 Lab4
 Pro1: Basic JavaScript​​​​​​​ -> https://sreytouch.github.io/JSintroLab.html
+Pro2: Jquery Review -> https://sreytouch.github.io/jqueryReview.html
 
 Optional 
 Pro1: ASCII -> https://sreytouch.github.io/optional/ascii.html
