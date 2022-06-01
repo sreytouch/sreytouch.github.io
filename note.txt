@@ -19,8 +19,7 @@ Pro1: Basic JavaScript​​​​​​​ -> https://sreytouch.github.io/JSin
 Pro2: Jquery Review -> https://sreytouch.github.io/jqueryReview.html
 
 Lab5
-Pro1: Scopes Rule ->  https://sreytouch.github.io/js/jscopesRules.js
-Pro2: Scopes Quiz ->  https://sreytouch.github.io/js/jscopesQuiz.js
+Pro2: Scopes Quiz ->  https://sreytouch.github.io/scopesQuiz.html
 
 Optional 
 Pro1: ASCII -> https://sreytouch.github.io/optional/ascii.html
