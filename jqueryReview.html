@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            $("#btnSubmit").click(function () {
+            $("#submit").click(function () {
                 //Label
                 let textBoxFirstLabel = document.createElement("label");
                 textBoxFirstLabel.innerHTML = $("#firstName").val();
@@ -29,7 +29,7 @@
                 //TextArea
                 let textAreaLabel = document.createElement("label");
                 textAreaLabel.innerHTML = $("#address").val();
-                $("#address").replaceWith(textAreaLabel)
+                $("#address").replaceWith(textAreaLabel);
 
                 //Radio
                 let radioLabel = document.createElement("label");
@@ -59,7 +59,7 @@
 
             });
 
-            $("#clear").click(function () {
+            $("#reset").click(function () {
                 location.reload();
             })
 
@@ -70,12 +70,22 @@
         #lastName,
         #email,
         #course,
-        #gender,
-        #selectedSkill,
-        #mGender {
+        #selectedSkill{
             margin-left: 20px;
             margin-bottom: 10px;
             padding: 5px 10px;
+        }
+        #email{
+            margin-left: 48px;
+        } 
+        #course, #selectedSkill{
+            margin-left: 40px;
+        }
+        #address, #gender{
+            margin-left: 35px;
+        }
+        .br{
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -93,14 +103,16 @@
         <label> Email: </label>
         <input type="email" id="email" required>
     </div>
-    <div>
+    <div class="br">
         <label> Address: </label>
         <textarea id="address" rows="3"></textarea>
-    </div><br />
-    <div>
+    </div>
+    <div class="br">
         <label> Gender: </label>
-        <input type="radio" name="gender" id="mGender" value="Male"><label>Male</label>
-        <input type="radio" name="gender" id="fGender" value="Female"><label>Female</label>
+        <span id="gender" class="input">
+            <input type="radio" name="gender" id="mGender" value="Male"><label>Male</label>
+            <input type="radio" name="gender" id="fGender" value="Female"><label>Female</label>
+        </span>
     </div>
     <div>
         <label for="course">Course: </label>
@@ -114,7 +126,7 @@
             <option>WAA</option>
         </select>
     </div>
-    <div>
+    <div class="br">
         <label for="skills">Skill: </label>
         <span id="selectedSkill">
             <input type="checkbox" name="device" value="Javascrip"> <label for="Javascrip">Javascrip</label>
@@ -122,10 +134,9 @@
             <input type="checkbox" name="device" value="Python"> <label for="Python">Python</label>
         </span>
     </div>
-    <br>
     <div>
-        <button id="btnSubmit"> Submit</button>
-        <button id="clear">Clear</button>
+        <button id="submit"> Submit</button>
+        <button id="reset">Reset</button>
     </div>
 </body>
 
