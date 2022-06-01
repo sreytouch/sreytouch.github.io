@@ -18,5 +18,9 @@ Lab4
 Pro1: Basic JavaScript​​​​​​​ -> https://sreytouch.github.io/JSintroLab.html
 Pro2: Jquery Review -> https://sreytouch.github.io/jqueryReview.html
 
+Lab5
+Pro1: Score
+Pro2: 
+
 Optional 
 Pro1: ASCII -> https://sreytouch.github.io/optional/ascii.html

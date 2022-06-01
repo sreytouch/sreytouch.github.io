@@ -10,62 +10,52 @@
     <script>
         $(function () {
             $("#btnSubmit").click(function () {
+                //Label
+                let textBoxFirstLabel = document.createElement("label");
+                textBoxFirstLabel.innerHTML = $("#firstName").val();
+                $("#firstName").replaceWith(textBoxFirstLabel);
+                // var tagLine = document.getElementById("firstName");
+                // tagLine.setAttribute("class", "firstName");
+                // tagLine.setAttribute("style", "background:red");
 
-                let textBoxLabel = document.createElement("label");
-                textBoxLabel.innerHTML = $("#firstName").val();
-                if ($("#firstName").val()) {
-                    $("#firstName").replaceWith(textBoxLabel);
-                } else {
-                    alert("Firstname is required")
-                }
+                let textBoxLastLabel = document.createElement("label");
+                textBoxLastLabel.innerHTML = $("#lastName").val();
+                $("#lastName").replaceWith(textBoxLastLabel);
+
+                let textBoxEmailLabel = document.createElement("label");
+                textBoxEmailLabel.innerHTML = $("#email").val();
+                $("#email").replaceWith(textBoxEmailLabel);
 
                 //TextArea
                 let textAreaLabel = document.createElement("label");
-                textAreaLabel.innerHTML = $("#aboutUs").val();
-                if ($("#aboutUs").val()) {
-                    $("#aboutUs").replaceWith(textAreaLabel)
-                } else {
-                    alert("About Us is required")
-                }
+                textAreaLabel.innerHTML = $("#address").val();
+                $("#address").replaceWith(textAreaLabel)
 
                 //Radio
                 let radioLabel = document.createElement("label");
                 // let checkedGender = document.getElementsByName("gender:checked");
                 let checkedGender = $("input[name='gender']:checked").val();
-                if (checkedGender != undefined) {
-                    radioLabel.innerHTML = checkedGender
-                    $("#gender").replaceWith(radioLabel)
-                } else {
-                    alert("Please check gender")
-                }
-
+                radioLabel.innerHTML = checkedGender
+                $("#gender").replaceWith(radioLabel)
 
                 //Dropdown
                 let dropdownLabel = document.createElement("label");
                 let selectedCourse = $("#course").val();
                 dropdownLabel.innerHTML = selectedCourse;
-                if (selectedCourse.toLowerCase() != "select") {
-                    $("#course").replaceWith(dropdownLabel)
-                } else {
-                    alert("please select any one course");
-                }
+                $("#course").replaceWith(dropdownLabel)
 
                 //Checkbox
                 let checkBoxLabel = document.createElement("label");
-                let selectedGadgets = $("input[name='device']");
+                let selectedSkill = $("input[name='device']");
 
                 let result = "";
-                for (let i = 0; i < selectedGadgets.length; i++) {
-                    if (selectedGadgets[i].checked) {
-                        result += "," + selectedGadgets[i].value;
+                for (let i = 0; i < selectedSkill.length; i++) {
+                    if (selectedSkill[i].checked) {
+                        result += "," + selectedSkill[i].value;
                     }
                 }
-                if (result) {
-                    result = result.substring(1)
-                    $("#selectedGadgets").replaceWith(result);
-                } else {
-                    alert("please select any gadgets")
-                }
+                result = result.substring(1)
+                $("#selectedSkill").replaceWith(result);
 
             });
 
@@ -76,8 +66,16 @@
         })
     </script>
     <style>
-        .top {
-            vertical-align: top;
+        #firstName,
+        #lastName,
+        #email,
+        #course,
+        #gender,
+        #selectedSkill,
+        #mGender {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
         }
     </style>
 </head>
@@ -87,42 +85,41 @@
         <label> FirstName: </label>
         <input type="text" id="firstName" required>
     </div>
-    <br>
     <div>
-        <label class="top"> About: </label>
-        <textarea id="aboutUs" rows="4"></textarea>
+        <label> LastName: </label>
+        <input type="text" id="lastName" required>
     </div>
-    <br>
-
+    <div>
+        <label> Email: </label>
+        <input type="email" id="email" required>
+    </div>
+    <div>
+        <label> Address: </label>
+        <textarea id="address" rows="3"></textarea>
+    </div><br />
     <div>
         <label> Gender: </label>
-        <span id="gender">
-            <label>Male</label><input type="radio" name="gender" id="mGender" value="Male">
-            <label>Female</label><input type="radio" name="gender" id="fGender" value="Female">
-        </span>
+        <input type="radio" name="gender" id="mGender" value="Male"><label>Male</label>
+        <input type="radio" name="gender" id="fGender" value="Female"><label>Female</label>
     </div>
-    <br>
-
     <div>
         <label for="course">Course: </label>
         <select name="course" id="course">
             <option>select</option>
             <option>FPP</option>
             <option>MPP</option>
-            <option>SWA</option>
             <option>WAP</option>
-            <option>EA</option>
-            <option>ALGO</option>
+            <option>SE</option>
+            <option>MWA</option>
+            <option>WAA</option>
         </select>
     </div>
-    <br>
-
     <div>
-        <label for="gadgets">Gadgets: </label>
-        <span id="selectedGadgets">
-            <input type="checkbox" name="device" value="Phone"> <label for="phone">Phone</label>
-            <input type="checkbox" name="device" value="Laptop"> <label for="laptop">Laptop</label>
-            <input type="checkbox" name="device" value="Tablet"> <label for="tablet">Tablet</label>
+        <label for="skills">Skill: </label>
+        <span id="selectedSkill">
+            <input type="checkbox" name="device" value="Javascrip"> <label for="Javascrip">Javascrip</label>
+            <input type="checkbox" name="device" value="Java"> <label for="Java">Java</label>
+            <input type="checkbox" name="device" value="Python"> <label for="Python">Python</label>
         </span>
     </div>
     <br>
