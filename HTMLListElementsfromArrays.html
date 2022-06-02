@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML List Elements From Arrays</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #btnSort,  #btnFilter, #submit, #btnFilter, #btnReduce{
+            cursor: pointer;
+            padding: 5px 20px;
+            margin:5px 10px;
+        }
+        #name, #color{
+            margin: 5px 10px;
+            padding: 5px 10px;
+        }
+        #code{
+            margin: 5px 12px;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+        $(function () {
+            let tableArray = [
+                { "name": "Apple", "Code": 100, "color": "red" },
+                { "name": "Samsung", "Code": 111, "color": "yellow" },
+                { "name": "Oppo", "Code": 222, "color": "blue" },
+                { "name": "Nokia", "Code": 333, "color": "pink" }
+            ];
+
+            let courseSelect = ["aa", "bb"];
+            let myTable = createTable(tableArray);
+            let myUL = createUL(tableArray);
+
+            let nameDiv = document.createElement("div");
+            let nameLabel = document.createElement("label");
+            nameLabel.innerHTML = "name:";
+            let nameTextbox = document.createElement("input");
+            nameTextbox.type = "text";
+            nameTextbox.id = "name";
+
+            let codeDiv = document.createElement("div");
+            let codeLabel = document.createElement("label");
+            codeLabel.innerHTML = "code:";
+            let codeTextbox = document.createElement("input");
+            codeTextbox.type = "text";
+            codeTextbox.id = "code";
+
+            let colorDiv = document.createElement("div");
+            let colorLabel = document.createElement("label");
+            colorLabel.innerHTML = "color:";
+            let colorTextbox = document.createElement("input");
+            colorTextbox.type = "text";
+            colorTextbox.id = "color";
+
+            let btnSub = document.createElement("button");
+            btnSub.id = "submit";
+            btnSub.innerHTML = "Submit";
+
+            let btnFilter = document.createElement("button");
+            btnFilter.id = "btnFilter";
+            btnFilter.innerHTML = "Filter";
+
+            let btnSort = document.createElement("button");
+            btnSort.id = "btnSort";
+            btnSort.innerHTML = "Sort";
+
+            let btnReduce = document.createElement("button");
+            btnReduce.id = "btnReduce";
+            btnReduce.innerHTML = "Reduce";
+
+            btnSub.onclick = function () {
+                let name = $("#name").val();
+                let code = $("#code").val();
+                let color = $("#color").val();
+                if (name != "" && code != "" && color != "") {
+                    $("#table").append(
+                        "<tr>" +
+                        "<td>" + $("#name").val() + "</td>" +
+                        "<td>" + $("#code").val() + "</td>" +
+                        "<td>" + $("#color").val() + "</td>" +
+                        "</tr>");
+                    $("#ul").append(
+                        "<li>" + $("#name").val() + "</li>" +
+                        "<li>" + $("#code").val() + "</li>" +
+                        "<li>" + $("#color").val() + "</li>"
+                    );
+                    clear();
+                }
+            }
+            btnFilter.onclick = function () {
+                let name = $("#name").val();
+                let code = $("#code").val();
+                let color = $("#color").val();
+                if (name != "" && code != "" && color != "") {
+                    $("#table").append(
+                        "<tr>" +
+                        "<td>" + $("#name").val() + "</td>" +
+                        "<td>" + $("#code").val() + "</td>" +
+                        "<td>" + $("#color").val() + "</td>" +
+                        "</tr>");
+                    $("#ul").append(
+                        "<li>" + $("#name").val() + "</li>" +
+                        "<li>" + $("#code").val() + "</li>" +
+                        "<li>" + $("#color").val() + "</li>"
+                    );
+                    clear();
+                }
+            }
+            btnSort.onclick = function () {
+                let name = $("#name").val();
+                let code = $("#code").val();
+                let color = $("#color").val();
+                if (name != "" && code != "" && color != "") {
+                    $("#table").append(
+                        "<tr>" +
+                        "<td>" + $("#name").val() + "</td>" +
+                        "<td>" + $("#code").val() + "</td>" +
+                        "<td>" + $("#color").val() + "</td>" +
+                        "</tr>");
+                    $("#ul").append(
+                        "<li>" + $("#name").val() + "</li>" +
+                        "<li>" + $("#code").val() + "</li>" +
+                        "<li>" + $("#color").val() + "</li>"
+                    );
+                    clear();
+                }
+            }
+            btnReduce.onclick = function () {
+                let name = $("#name").val();
+                let code = $("#code").val();
+                let color = $("#color").val();
+                if (name != "" && code != "" && color != "") {
+                    $("#table").append(
+                        "<tr>" +
+                        "<td>" + $("#name").val() + "</td>" +
+                        "<td>" + $("#code").val() + "</td>" +
+                        "<td>" + $("#color").val() + "</td>" +
+                        "</tr>");
+                    $("#ul").append(
+                        "<li>" + $("#name").val() + "</li>" +
+                        "<li>" + $("#code").val() + "</li>" +
+                        "<li>" + $("#color").val() + "</li>"
+                    );
+                    clear();
+                }
+            }
+            document.body.append(nameDiv);
+            nameDiv.append(nameLabel);
+            nameDiv.append(nameTextbox);
+
+            document.body.append(codeDiv);
+            codeDiv.append(codeLabel);
+            codeDiv.append(codeTextbox);
+
+            document.body.append(colorDiv);
+            colorDiv.append(colorLabel);
+            colorDiv.append(colorTextbox);
+
+            document.body.append(btnSub);
+            document.body.append(btnSort);
+            document.body.append(btnFilter);
+            document.body.append(btnReduce);
+            document.body.append(myTable);
+            document.body.append(myUL);
+        })
+
+        function clear() {
+            $("#name").val("");
+            $("#code").val("");
+            $("#color").val("");
+        }
+
+        function createTable(tableArray) {
+            let table = document.createElement("table");
+            table.id = "table";
+            let header = "<tr>";
+            for (let key in tableArray[0]) { 
+                header += "<th>" + key + "</th>";
+            }
+            header += "</tr>";
+
+            let row = "<tr>";
+            for (let element of tableArray) { 
+                for (let key in element) {
+                    row += "<td>" + element[key] + "</td>";
+                }
+                row += "</tr>";
+            }
+            table.innerHTML = header + row;
+            return table;
+        }
+
+        function createUL(tableArray) {
+            let ul = document.createElement("ul")
+            ul.id = "ul";
+            let li = "";
+            for (let element of tableArray) {
+                for (let key in element) {
+                    li += "<li>" + element[key] + "</li>";
+                }
+            }
+            ul.innerHTML = li;
+            return ul;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- add from js  -->
+</body>
+
+</html>
