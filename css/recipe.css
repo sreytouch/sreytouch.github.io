@@ -11,6 +11,10 @@ p {
     margin: 2px;
 }
 
+.none-li{
+    list-style: none;
+}
+
 .mag10 {
     margin-top: 20px;
 }
