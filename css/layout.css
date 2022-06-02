@@ -56,6 +56,10 @@
     float: left;
 }
 
+.menu>span{
+    padding-right: 10px;
+}
+
 .menu-right {
     padding-top: 20px;
     float: right;
