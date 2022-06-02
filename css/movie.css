@@ -10,6 +10,10 @@ dd>ul>li {
     list-style: none;
 }
 
+a, a:-webkit-any-link{
+    text-decoration: none;
+}
+
 .bodys {
     background-image: url("./images/background.png");
 }
