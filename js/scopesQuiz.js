@@ -22,29 +22,29 @@
 
 // 1.
 let grapes = "green";
-
 function fruits() {
     return function (message) {
         return grapes;
     };
 }
+console.log(fruits()()); 
+//prints green : fruits()() calls annonymous function of fruits and "grapes" is defined globally
 
-console.log(fruits()()); //prints green : fruits()() calls annonymous function of fruits and "grapes" is defined globally
+
 
 // 2.
 let x = 10;
-
 function globalVar() {
     return function () {
         return x;
     };
 }
-
 x = 20;
-
 let fn = globalVar();
+console.log(fn()); 
+//prints 20 : x is set to 20 before calling fn() function
 
-console.log(fn()); //prints 20 : x is set to 20 before calling fn() function
+
 
 // 3.
 function sport(message) {
@@ -53,10 +53,11 @@ function sport(message) {
         return message;
     };
 }
-
 let sportFn = sport("Hello");
+console.log(sportFn()); 
+//retuns undefined: "message" is parameter for return function, but no parameter is passed
 
-console.log(sportFn()); //retuns undefined: "message" is parameter for return function, but no parameter is passed
+
 
 // // 4.
 function test(x) {
@@ -71,6 +72,8 @@ function test(x) {
 // further in return function x is post incremented hence it returns 11  
 console.log(test(2)());
 
+
+
 // // 5.
 function car() {
     let color = "white";
@@ -80,8 +83,10 @@ function car() {
     }
     console.log(color); //___________  White
 }
+car("black"); 
+// only white will be printed, because seat function is not called.
 
-car("black"); // only white will be printed, because seat function is not called.
+
 
 // 6.
 function department() {
@@ -91,11 +96,12 @@ function department() {
         let language = "javascript";
         console.log(language);
     }
-
     console.log(language); // language is not defined
 }
+department(); 
+//first 5 is printed then undefined is printed as language is not defined
 
-department(); //first 5 is printed then undefined is printed as language is not defined
+
 
 // // 7.
 function department(language) {
@@ -105,8 +111,7 @@ function department(language) {
         let language = "javascript";
         console.log(language);
     }
-
     console.log(language); //prints "java"
 }
-
-department("java"); // first 5 is printed as numberOfDepartments is set t0 5 locally and as "java" is sent as parameter in language, it prints "java"
+department("java"); 
+// first 5 is printed as numberOfDepartments is set t0 5 locally and as "java" is sent as parameter in language, it prints "java"
