@@ -53,7 +53,6 @@
             ];
 
             let myTable = createTable(tableArray);
-            myTable.id = "table";
             let myUL = createUL(tableArray);
 
             let nameDiv = document.createElement("div");
@@ -116,8 +115,9 @@
             btnSort.onclick = function () {
                 tableArray.sort((x, y) => x.Code - y.Code);
                 let filterTable = createTable(tableArray);
-                console.log("filterTable--", filterTable);
+                let filterUl = createUL(tableArray);
                 $("#table").replaceWith(filterTable);
+                $("#ul").replaceWith(filterUl);
             }
             btnFilter.onclick = function () {
                 let filteredArray = tableArray = tableArray.filter(function (ele, index, arr) {
@@ -126,7 +126,9 @@
                     }
                 });
                 let filterTable = createTable(tableArray);
+                let filterUl = createUL(tableArray);
                 $("#table").replaceWith(filterTable);
+                $("#ul").replaceWith(filterUl);
             }
             btnReduce.onclick = function () {
                 tableArray = tableArray.reduce(function (prev, cur, index, arr) {
@@ -139,7 +141,9 @@
                     return prev;
                 }, []);
                 let filterTable = createTable(tableArray);
+                let filterUl = createUL(tableArray);
                 $("#table").replaceWith(filterTable);
+                $("#ul").replaceWith(filterUl);
             }
 
             document.body.append(nameDiv);
