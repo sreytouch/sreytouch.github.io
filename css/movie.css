@@ -133,6 +133,7 @@ a, a:-webkit-any-link{
     vertical-align: top;
     font-family: sans-serif;
     min-height: 28px;
+    font-size: 14px;
 }
 
 .font-size14 {

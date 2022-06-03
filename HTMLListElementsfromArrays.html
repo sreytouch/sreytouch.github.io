@@ -8,31 +8,52 @@
     <title>HTML List Elements From Arrays</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        #btnSort,  #btnFilter, #submit, #btnFilter, #btnReduce{
+        #btnSort,
+        #btnFilter,
+        #submit,
+        #btnFilter,
+        #btnReduce {
             cursor: pointer;
             padding: 5px 20px;
-            margin:5px 10px;
+            margin: 20px 10px;
         }
-        #name, #color{
+
+        #name,
+        #color {
             margin: 5px 10px;
             padding: 5px 10px;
         }
-        #code{
+
+        #code {
             margin: 5px 12px;
             padding: 5px 10px;
+        }
+
+        #table,
+        #ul,
+        li {
+            margin: 10px 0;
+        }
+
+        #table>tbody>tr>th {
+            margin-bottom: 10px;
+        }
+
+        #table>tbody>tr>td {
+            padding-left: 10px;
         }
     </style>
     <script>
         $(function () {
             let tableArray = [
-                { "name": "Apple", "Code": 100, "color": "red" },
-                { "name": "Samsung", "Code": 111, "color": "yellow" },
-                { "name": "Oppo", "Code": 222, "color": "blue" },
-                { "name": "Nokia", "Code": 333, "color": "pink" }
+                { "Name": "Apple", "Code": 2222, "Color": "red" },
+                { "Name": "Samsung", "Code": 1111, "Color": "yellow" },
+                { "Name": "Oppo", "Code": 4444, "Color": "blue" },
+                { "Name": "Nokia", "Code": 3333, "Color": "pink" }
             ];
 
-            let courseSelect = ["aa", "bb"];
             let myTable = createTable(tableArray);
+            myTable.id = "myTable";
             let myUL = createUL(tableArray);
 
             let nameDiv = document.createElement("div");
@@ -84,70 +105,45 @@
                         "<td>" + $("#color").val() + "</td>" +
                         "</tr>");
                     $("#ul").append(
-                        "<li>" + $("#name").val() + "</li>" +
+                        "<li><b>" + $("#name").val() + "</b></li>" +
                         "<li>" + $("#code").val() + "</li>" +
                         "<li>" + $("#color").val() + "</li>"
                     );
                     clear();
                 }
+            }
+
+            btnSort.onclick = function () {
+                tableArray.sort((x, y) => x.Code - y.Code);
+                myTable.innerHTML = createTable(tableArray);
+                myUL.innerHTML = createUL(tableArray);
+                console.log("createTable(tableArray)--", createTable(tableArray));
+                console.log("createUL(tableArray)--", createUL(tableArray));
             }
             btnFilter.onclick = function () {
-                let name = $("#name").val();
-                let code = $("#code").val();
-                let color = $("#color").val();
-                if (name != "" && code != "" && color != "") {
-                    $("#table").append(
-                        "<tr>" +
-                        "<td>" + $("#name").val() + "</td>" +
-                        "<td>" + $("#code").val() + "</td>" +
-                        "<td>" + $("#color").val() + "</td>" +
-                        "</tr>");
-                    $("#ul").append(
-                        "<li>" + $("#name").val() + "</li>" +
-                        "<li>" + $("#code").val() + "</li>" +
-                        "<li>" + $("#color").val() + "</li>"
-                    );
-                    clear();
-                }
-            }
-            btnSort.onclick = function () {
-                let name = $("#name").val();
-                let code = $("#code").val();
-                let color = $("#color").val();
-                if (name != "" && code != "" && color != "") {
-                    $("#table").append(
-                        "<tr>" +
-                        "<td>" + $("#name").val() + "</td>" +
-                        "<td>" + $("#code").val() + "</td>" +
-                        "<td>" + $("#color").val() + "</td>" +
-                        "</tr>");
-                    $("#ul").append(
-                        "<li>" + $("#name").val() + "</li>" +
-                        "<li>" + $("#code").val() + "</li>" +
-                        "<li>" + $("#color").val() + "</li>"
-                    );
-                    clear();
-                }
+                tableArray = tableArray.filter(function (ele, index, arr) {
+                    if (ele.Code >= 2222) {
+                        return true;
+                    }
+                });
+                myTable.innerHTML = createTable(tableArray);
+                myUL.innerHTML = createUL(tableArray);
             }
             btnReduce.onclick = function () {
-                let name = $("#name").val();
-                let code = $("#code").val();
-                let color = $("#color").val();
-                if (name != "" && code != "" && color != "") {
-                    $("#table").append(
-                        "<tr>" +
-                        "<td>" + $("#name").val() + "</td>" +
-                        "<td>" + $("#code").val() + "</td>" +
-                        "<td>" + $("#color").val() + "</td>" +
-                        "</tr>");
-                    $("#ul").append(
-                        "<li>" + $("#name").val() + "</li>" +
-                        "<li>" + $("#code").val() + "</li>" +
-                        "<li>" + $("#color").val() + "</li>"
-                    );
-                    clear();
-                }
+                tableArray = tableArray.reduce(function (prev, cur, index, arr) {
+                    let aa = {};
+                    for (const key in cur) {
+                        aa[key] = cur[key];
+                    }
+                    aa["extra"] = "Testing";
+                    prev.push(aa);
+                    console.log("==Result== ", aa);
+                    return prev;
+                }, []);
+                myTable.innerHTML = createTable(tableArray);
+                myUL.innerHTML = createUL(tableArray);
             }
+
             document.body.append(nameDiv);
             nameDiv.append(nameLabel);
             nameDiv.append(nameTextbox);
@@ -178,13 +174,13 @@
             let table = document.createElement("table");
             table.id = "table";
             let header = "<tr>";
-            for (let key in tableArray[0]) { 
+            for (let key in tableArray[0]) {
                 header += "<th>" + key + "</th>";
             }
             header += "</tr>";
 
             let row = "<tr>";
-            for (let element of tableArray) { 
+            for (let element of tableArray) {
                 for (let key in element) {
                     row += "<td>" + element[key] + "</td>";
                 }
@@ -195,7 +191,8 @@
         }
 
         function createUL(tableArray) {
-            let ul = document.createElement("ul")
+            let ul = document.createElement("ul");
+            let br = document.createElement("br");
             ul.id = "ul";
             let li = "";
             for (let element of tableArray) {
