@@ -46,14 +46,14 @@
     <script>
         $(function () {
             let tableArray = [
-                { "Name": "Apple", "Code": 2222, "Color": "red" },
-                { "Name": "Samsung", "Code": 1111, "Color": "yellow" },
-                { "Name": "Oppo", "Code": 4444, "Color": "blue" },
-                { "Name": "Nokia", "Code": 3333, "Color": "pink" }
+                { "Name": "Apple", "Code": 2222, "Color": "Red" },
+                { "Name": "Samsung", "Code": 1111, "Color": "Yellow" },
+                { "Name": "Oppo", "Code": 4444, "Color": "Blue" },
+                { "Name": "Nokia", "Code": 3333, "Color": "Pink" }
             ];
 
             let myTable = createTable(tableArray);
-            myTable.id = "myTable";
+            myTable.id = "table";
             let myUL = createUL(tableArray);
 
             let nameDiv = document.createElement("div");
@@ -115,33 +115,31 @@
 
             btnSort.onclick = function () {
                 tableArray.sort((x, y) => x.Code - y.Code);
-                myTable.innerHTML = createTable(tableArray);
-                myUL.innerHTML = createUL(tableArray);
-                console.log("createTable(tableArray)--", createTable(tableArray));
-                console.log("createUL(tableArray)--", createUL(tableArray));
+                let filterTable = createTable(tableArray);
+                console.log("filterTable--", filterTable);
+                $("#table").replaceWith(filterTable);
             }
             btnFilter.onclick = function () {
-                tableArray = tableArray.filter(function (ele, index, arr) {
+                let filteredArray = tableArray = tableArray.filter(function (ele, index, arr) {
                     if (ele.Code >= 2222) {
                         return true;
                     }
                 });
-                myTable.innerHTML = createTable(tableArray);
-                myUL.innerHTML = createUL(tableArray);
+                let filterTable = createTable(tableArray);
+                $("#table").replaceWith(filterTable);
             }
             btnReduce.onclick = function () {
                 tableArray = tableArray.reduce(function (prev, cur, index, arr) {
-                    let aa = {};
+                    let addRow = {};
                     for (const key in cur) {
-                        aa[key] = cur[key];
+                        addRow[key] = cur[key];
                     }
-                    aa["extra"] = "Testing";
-                    prev.push(aa);
-                    console.log("==Result== ", aa);
+                    addRow["Extra"] = "Testing";
+                    prev.push(addRow);
                     return prev;
                 }, []);
-                myTable.innerHTML = createTable(tableArray);
-                myUL.innerHTML = createUL(tableArray);
+                let filterTable = createTable(tableArray);
+                $("#table").replaceWith(filterTable);
             }
 
             document.body.append(nameDiv);
