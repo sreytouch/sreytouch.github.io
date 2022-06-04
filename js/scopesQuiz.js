@@ -27,7 +27,7 @@ function fruits() {
         return grapes;
     };
 }
-console.log(fruits()()); 
+console.log("1-",fruits()()); //1- green
 //prints green : fruits()() calls annonymous function of fruits and "grapes" is defined globally
 
 
@@ -41,7 +41,7 @@ function globalVar() {
 }
 x = 20;
 let fn = globalVar();
-console.log(fn()); 
+console.log("2-",fn()); //2- 20
 //prints 20 : x is set to 20 before calling fn() function
 
 
@@ -54,7 +54,7 @@ function sport(message) {
     };
 }
 let sportFn = sport("Hello");
-console.log(sportFn()); 
+console.log("3-",sportFn()); //3- undefined
 //retuns undefined: "message" is parameter for return function, but no parameter is passed
 
 
@@ -63,14 +63,14 @@ console.log(sportFn());
 function test(x) {
     x = 10;
     x++;
-    console.log(x);
+    console.log("4-",x); //4- 11
     return function () {
         return x++;
     };
 }
 // returns 11 and 11: 2 is passed as parameter but reassigned to 10 as x is local variable, then it is incremented and set to 11,
 // further in return function x is post incremented hence it returns 11  
-console.log(test(2)());
+console.log("4-",test(2)()); //4- 11
 
 
 
@@ -79,9 +79,10 @@ function car() {
     let color = "white";
     function seat() {
         let color = "brown";
-        console.log(color); //___________
+        console.log("5-",color); //5- brown
     }
-    console.log(color); //___________  White
+    // seat();
+    console.log("5-",color); //5- white
 }
 car("black"); 
 // only white will be printed, because seat function is not called.
@@ -91,12 +92,13 @@ car("black");
 // 6.
 function department() {
     let numberOfDepartments = 5;
-    console.log(numberOfDepartments); //prints 5
+    console.log("6-",numberOfDepartments); //6- 5
     function software() {
         let language = "javascript";
-        console.log(language);
+        console.log("6-",language); //6- javascript
     }
-    console.log(language); // language is not defined
+    software();
+    console.log("6-",language); //6- undefined
 }
 department(); 
 //first 5 is printed then undefined is printed as language is not defined
@@ -106,12 +108,13 @@ department();
 // // 7.
 function department(language) {
     let numberOfDepartments = 5;
-    console.log(numberOfDepartments); //prints 5
+    console.log("7-",numberOfDepartments); //7- 5
     function software() {
         let language = "javascript";
-        console.log(language);
+        console.log("7-",language); //7- javascript
     }
-    console.log(language); //prints "java"
+    software();
+    console.log("7-",language); //7- java
 }
 department("java"); 
 // first 5 is printed as numberOfDepartments is set t0 5 locally and as "java" is sent as parameter in language, it prints "java"
