@@ -55,13 +55,6 @@ $(function () {
         { "Name": "Nokia", "Code": 3333, "Color": "Pink" }
     ];
 
-    // let myTable = document.createElement("table");
-    // myTable.id = "table";
-    // document.body.append(myTable);
-    // let myUL = document.createElement("ul");
-    // myUL.id = "ul";
-    // document.body.append(myUL);
-
     let myTable = createTable(tableArray);
     let myUL = createUL(tableArray);
 

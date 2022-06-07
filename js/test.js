@@ -28,6 +28,10 @@ let obj = {
 // Condition 3
 obj.more(); //takes global this as inner function
 
+// Condition 4
+let p = obj.more;
+p(); //takes global this as inner function
+
 
 
 // let objArray =[{name:"a",age:20},{name:"b",age:14},{name:"c",age:40}];

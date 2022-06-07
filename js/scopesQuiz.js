@@ -97,7 +97,7 @@ function department() {
         let language = "javascript";
         console.log("6-",language); //6- javascript
     }
-    software();
+    // software();
     console.log("6-",language); //6- undefined
 }
 department(); 
