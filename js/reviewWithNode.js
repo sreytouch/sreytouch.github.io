@@ -78,7 +78,6 @@ function uniqueNumbers(arr) {
 
 // //4 . Transform Array to print the type of elements in the Array
 function transform(arrObj) {
-
     let transformed = [];
     for (const item of arrObj) {
         let typ = typeof item;
