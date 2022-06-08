@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Review</title>
+    <style>
+        #firstName,
+        #lastName,
+        #email,
+        #course,
+        #selectedSkill {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+        }
+
+        #email {
+            margin-left: 48px;
+        }
+
+        #course,
+        #selectedSkill {
+            margin-left: 40px;
+        }
+
+        #address,
+        #gender {
+            margin-left: 35px;
+        }
+
+        .br {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/postData" method="post">
+        <div>
+            <label> FirstName: </label>
+            <input type="text" id="firstName" name="fname" required>
+        </div>
+        <div>
+            <label> LastName: </label>
+            <input type="text" id="lastName" name="lname" required>
+        </div>
+        <div>
+            <label> Email: </label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="br">
+            <label> Address: </label>
+            <textarea id="address" rows="3" name="address"></textarea>
+        </div>
+        <div class="br">
+            <label> Gender: </label>
+            <span id="gender" class="input">
+                <input type="radio" name="gender" id="mGender" value="Male"><label>Male</label>
+                <input type="radio" name="gender" id="fGender" value="Female"><label>Female</label>
+            </span>
+        </div>
+        <div>
+            <label for="course">Course: </label>
+            <select name="course" id="course">
+                <option>select</option>
+                <option>FPP</option>
+                <option>MPP</option>
+                <option>WAP</option>
+                <option>WAA</option>
+                <option>MWA</option>
+            </select>
+        </div>
+        <div class="br">
+            <label for="skills">Skill: </label>
+            <span id="selectedSkill">
+                <input type="checkbox" name="device" value="Javascrip"> <label for="Javascrip">Javascrip</label>
+                <input type="checkbox" name="device" value="Java"> <label for="Java">Java</label>
+                <input type="checkbox" name="device" value="Python"> <label for="Python">Python</label>
+            </span>
+        </div>
+        <div>
+            <button type="submit" id="submit"> Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>
