@@ -1,2 +1,5 @@
 /node/node_modules
 /node/package-lock.json
+
+/ExpressAndCookie/node_modules
+/ExpressAndCookie/package-lock.json
