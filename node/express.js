@@ -41,7 +41,7 @@ app.use(function (eq, res) {
     res.sendFile(path.join(__dirname, '../', '404.html'))
 })
 
-app.use(function (eq, res) {
+app.use(function (error, eq, res) {
     res.status(500);
     res.sendFile(path.join(__dirname, '../', 'error.html'))
 })
