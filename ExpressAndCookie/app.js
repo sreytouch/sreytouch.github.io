@@ -8,8 +8,8 @@ const app = express();
 app.use(express.json());
 // app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css',express.static(path.join(__dirname, 'public', 'css')));
 
 
 app.use(cookieParser());
