@@ -31,7 +31,7 @@
 
 ## Contact 
  <h3 align="center">
-  <code> Akshat Jalan </code>
+  <code> Sreytouch Lang(Jessica) </code>
 </h3>
   <p align="center"> 
   <a href="https://github.com/sreytouch">
