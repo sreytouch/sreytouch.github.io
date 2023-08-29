@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Review</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#submit").click(function () {
+                //Label
+                let textBoxFirstLabel = document.createElement("label");
+                textBoxFirstLabel.innerHTML = $("#firstName").val();
+                $("#firstName").replaceWith(textBoxFirstLabel);
+                // var tagLine = document.getElementById("firstName");
+                // tagLine.setAttribute("class", "firstName");
+                // tagLine.setAttribute("style", "background:red");
+
+                let textBoxLastLabel = document.createElement("label");
+                textBoxLastLabel.innerHTML = $("#lastName").val();
+                $("#lastName").replaceWith(textBoxLastLabel);
+
+                let textBoxEmailLabel = document.createElement("label");
+                textBoxEmailLabel.innerHTML = $("#email").val();
+                $("#email").replaceWith(textBoxEmailLabel);
+
+                //TextArea
+                let textAreaLabel = document.createElement("label");
+                textAreaLabel.innerHTML = $("#address").val();
+                $("#address").replaceWith(textAreaLabel);
+
+                //Radio
+                let radioLabel = document.createElement("label");
+                // let checkedGender = document.getElementsByName("gender:checked");
+                let checkedGender = $("input[name='gender']:checked").val();
+                radioLabel.innerHTML = checkedGender
+                $("#gender").replaceWith(radioLabel)
+
+                //Dropdown
+                let dropdownLabel = document.createElement("label");
+                let selectedCourse = $("#course").val();
+                dropdownLabel.innerHTML = selectedCourse;
+                $("#course").replaceWith(dropdownLabel)
+
+                //Checkbox
+                let checkBoxLabel = document.createElement("label");
+                let selectedSkill = $("input[name='device']");
+
+                let result = "";
+                for (let i = 0; i < selectedSkill.length; i++) {
+                    if (selectedSkill[i].checked) {
+                        result += "," + selectedSkill[i].value;
+                    }
+                }
+                result = result.substring(1)
+                $("#selectedSkill").replaceWith(result);
+
+            });
+
+            $("#reset").click(function () {
+                location.reload();
+            })
+
+        })
+    </script>
+    <style>
+        #firstName,
+        #lastName,
+        #email,
+        #course,
+        #selectedSkill{
+            margin-left: 20px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+        }
+        #email{
+            margin-left: 48px;
+        } 
+        #course, #selectedSkill{
+            margin-left: 40px;
+        }
+        #address, #gender{
+            margin-left: 35px;
+        }
+        .br{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label> FirstName: </label>
+        <input type="text" id="firstName" required>
+    </div>
+    <div>
+        <label> LastName: </label>
+        <input type="text" id="lastName" required>
+    </div>
+    <div>
+        <label> Email: </label>
+        <input type="email" id="email" required>
+    </div>
+    <div class="br">
+        <label> Address: </label>
+        <textarea id="address" rows="3"></textarea>
+    </div>
+    <div class="br">
+        <label> Gender: </label>
+        <span id="gender" class="input">
+            <input type="radio" name="gender" id="mGender" value="Male"><label>Male</label>
+            <input type="radio" name="gender" id="fGender" value="Female"><label>Female</label>
+        </span>
+    </div>
+    <div>
+        <label for="course">Course: </label>
+        <select name="course" id="course">
+            <option>select</option>
+            <option>FPP</option>
+            <option>MPP</option>
+            <option>WAP</option>
+            <option>SE</option>
+            <option>MWA</option>
+            <option>WAA</option>
+        </select>
+    </div>
+    <div class="br">
+        <label for="skills">Skill: </label>
+        <span id="selectedSkill">
+            <input type="checkbox" name="device" value="Javascrip"> <label for="Javascrip">Javascrip</label>
+            <input type="checkbox" name="device" value="Java"> <label for="Java">Java</label>
+            <input type="checkbox" name="device" value="Python"> <label for="Python">Python</label>
+        </span>
+    </div>
+    <div>
+        <button id="submit"> Submit</button>
+        <button id="reset">Reset</button>
+    </div>
+</body>
+
+</html>

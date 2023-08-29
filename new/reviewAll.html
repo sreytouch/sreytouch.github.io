@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script>
+    let array = [{ name: "pear", price: 4}, { name: "Apple", price: 1}, { name: "Banana", price: 5}];
+    let SortList = () => array.sort((x, y) => x.name.localeCompare(y.name));
+    let FilterList = () => array = array.filter(x => x.name != "Apple");
+    let CalcTotal = () => document.getElementById("totalId").innerHTML = "Total= " + array.reduce((x, y) => {
+        return x += y.price;
+    }, 0);
+
+    let CreateList = () => {
+        let ul = document.getElementById("listID");
+        if (ul !== null)
+            document.body.removeChild(ul);
+
+        ul = document.createElement("ul");
+        ul.setAttribute("id", "listID");
+        for (let i = 0; i < array.length; i++) {
+            ul.innerHTML += ("<li>" + array[i].name + "</li>");
+        }
+
+        document.body.append(ul);
+    }
+    
+    $(function() {
+        CreateList();
+    });
+    
+</script>
+
+<body>
+    <button onclick="SortList();CreateList()">Sort List</button>
+    <button onclick="FilterList();CreateList()">Filter List</button>
+    <button onclick="CalcTotal();">Calc Total</button>
+    <span id="totalId"></span>
+</body>
+
+</html>

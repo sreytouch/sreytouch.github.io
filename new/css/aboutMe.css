@@ -1,0 +1,60 @@
+html,
+.bodys {
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: #364537;
+    color: #fff;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.padd20 {
+    padding-left: 25px;
+    margin-bottom: 0;
+}
+
+.padd40 {
+    padding-left: 60px;
+    margin-top: 0;
+}
+
+ol.d {
+    list-style-type: none;
+}
+
+.h1-blue {
+    font-size: 46px;
+    color: cornflowerblue;
+}
+
+.h3-blue {
+    color: cornflowerblue;
+}
+
+.yellow {
+    color: gold;
+}
+
+.red,
+a {
+    color: red;
+    text-decoration: underline;
+}
+
+ol {
+    list-style-type: decimal;
+    counter-reset: item 4;
+}
+
+ol>li {
+    counter-increment: item -1;
+}
+
+ol>li:before {
+    content: counter(item) ". ";
+    float: left;
+    padding-right: 10px;
+}
