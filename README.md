@@ -6,8 +6,6 @@
 
 # Website Preview
   This is a portfolio of my work, including both my personal and academic projects.
-  
- ![Alt text](https://github.com/Akshatjalan/akshat/blob/master/assets/img/yeah.png?raw=true "Main Page")
 
 
 :star:  Star me on GitHub — it helps!
