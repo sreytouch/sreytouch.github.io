@@ -3,3 +3,4 @@
 
 /ExpressAndCookie/node_modules
 /ExpressAndCookie/package-lock.json
+.DS_Store
