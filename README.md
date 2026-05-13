@@ -1,53 +1,32 @@
-<h1 align="center">DevFolio</h1>
+# Sreytouch Portfolio
 
-<p align="center">This website is an opportunity to demonstrate a <b>Portfolio</b> of information about me and to provide further information (via links) about my work.<p>
+Live site: [https://sreytouch.github.io/](https://sreytouch.github.io/)
 
-  ### <code>Live Demo</code> - **[Portfolio Website](https://sreytouch.github.io/)**
+This repository powers the public GitHub Pages portfolio for Sreytouch Lang (Jessica).
 
-# Website Preview
-  This is a portfolio of my work, including both my personal and academic projects.
+## Structure
 
+- `index.html`, `404.html`, and `assets/` contain the published GitHub Pages build.
+- `portfolio-source/` contains the editable React + Vite source for the site.
 
-:star:  Star me on GitHub — it helps!
+## Local development
 
-# Features
- Fully Responsive\
- Valid `HTML`, `CSS` and `JavaScript`\
- Typing animation using `bootsrap`\
- Easy to modify
- 
-# Sections 📚
-- [x] About me
-- [x] Facts
-- [x] Skills
-- [x] Resume 
-- [x] Projects 
-- [x] Contact Info
+```bash
+cd portfolio-source
+npm install
+npm run dev
+```
 
-# Tools Used
-* [<b>GitHub Pages</b>](https://create-react-app.dev/docs/deployment/#github-pages) - To host my static website (HTML, CSS, JS).
-* [<b>Bootstrap</b>](https://bootstrap.com/) - A CSS framework to get Google's Material Design components.
+## Rebuild for Pages
 
+```bash
+cd portfolio-source
+npm install
+npm run build
+```
 
-## Contact 
- <h3 align="center">
-  <code> Sreytouch Lang(Jessica) </code>
-</h3>
-  <p align="center"> 
-  <a href="https://github.com/sreytouch">
-    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Github.svg" width="30" height="30" hspace="20">
-  </a>
+Then copy the generated `portfolio-source/dist/` output to the repository root:
 
-  <a href="https://www.linkedin.com/in/sreytouchlang/">
-    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/LinkedIN.svg" width="30" height="30" hspace="20">
-  </a>
-
-  <a href="https://www.instagram.com/sreytouchlang/">
-    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Instagram.svg" width="30" height="30" hspace="20">
-  </a>
-
-  <a href="mailto:atouch.it@gmail.com">
-    <img src="https://github.com/Akshatjalan/akshat/blob/master/Color/Gmail.svg"  width="30" height="30" hspace="20">
-  </a>
-
-</p>
+- `dist/index.html` -> `index.html`
+- `dist/index.html` -> `404.html`
+- `dist/assets/*` -> `assets/`

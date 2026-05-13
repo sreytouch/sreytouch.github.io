@@ -1,6 +1,3 @@
-/node/node_modules
-/node/package-lock.json
-
-/ExpressAndCookie/node_modules
-/ExpressAndCookie/package-lock.json
+portfolio-source/node_modules
+portfolio-source/dist
 .DS_Store
