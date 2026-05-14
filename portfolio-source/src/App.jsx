@@ -902,6 +902,10 @@ function App() {
           </div>
         </section>
       </main>
+
+      <footer className="site-footer">
+        <p>© 2026 Sreytouch Lang(Jessica). All rights reserved.</p>
+      </footer>
     </div>
   )
 }

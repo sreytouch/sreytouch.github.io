@@ -149,7 +149,7 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
     0 10px 20px rgba(17, 24, 39, 0.06);
   font-family: var(--serif);
-  font-size: 1.22rem;
+  font-size: 1.18rem;
   letter-spacing: -0.03em;
   color: var(--ink);
   font-weight: 800;
@@ -258,7 +258,7 @@ button {
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(242, 247, 255, 0.95));
   color: var(--ink);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
@@ -438,7 +438,7 @@ button {
   padding: 0.4rem 0.58rem;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   transition:
     color 160ms ease,
     background 160ms ease;
@@ -457,6 +457,19 @@ button {
 
 .portfolio {
   padding: 1.35rem 0 3rem;
+}
+
+.site-footer {
+  width: min(1320px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.site-footer p {
+  margin: 0;
 }
 
 .section-card {
@@ -1502,7 +1515,7 @@ button {
     justify-content: flex-start;
     white-space: normal;
     line-height: 1.1;
-    font-size: clamp(1.02rem, 5.4vw, 1.48rem);
+    font-size: clamp(1rem, 5.2vw, 1.42rem);
     padding: 0.72rem 1rem;
   }
 
@@ -1516,7 +1529,7 @@ button {
   .site-links a {
     flex: 0 0 auto;
     padding: 0.46rem 0.72rem;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
   }
 
   .theme-toggle {
@@ -1629,7 +1642,7 @@ button {
   }
 
   .brand {
-    font-size: clamp(0.98rem, 5.8vw, 1.22rem);
+    font-size: clamp(0.96rem, 5.7vw, 1.16rem);
     padding: 0.68rem 0.9rem;
   }
 
@@ -1664,7 +1677,7 @@ button {
   .site-links a {
     width: auto;
     justify-content: center;
-    font-size: 0.86rem;
+    font-size: 0.82rem;
     padding: 0.42rem 0.66rem;
   }
 
