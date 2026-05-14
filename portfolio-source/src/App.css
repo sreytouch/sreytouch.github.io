@@ -149,7 +149,7 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
     0 10px 20px rgba(17, 24, 39, 0.06);
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   letter-spacing: -0.03em;
   color: var(--ink);
   font-weight: 800;
@@ -729,7 +729,7 @@ button {
 
 .hero h1 {
   max-width: 22ch;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.88rem, 3.15vw, 2.72rem);
   line-height: 1.1;
 }
 
@@ -767,7 +767,7 @@ button {
 .lede {
   margin: 0;
   max-width: 44rem;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
 }
 
 .primary-link,
@@ -914,14 +914,14 @@ button {
   margin: 0;
   font-family: var(--serif);
   letter-spacing: -0.03em;
-  font-size: 1.45rem;
+  font-size: 1.34rem;
   color: var(--ink);
 }
 
 .portrait-copy p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   line-height: 1.7;
 }
 
@@ -977,7 +977,7 @@ button {
 }
 
 .metric-card strong {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-family: var(--serif);
 }
 
@@ -989,7 +989,7 @@ button {
 
 .section-heading h2,
 .contact-card h2 {
-  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  font-size: clamp(1.34rem, 2.35vw, 1.98rem);
   line-height: 1.18;
   color: var(--accent-strong);
 }
@@ -1063,7 +1063,7 @@ button {
 .skill-card h3,
 .experience-card h3,
 .sidebar-card h3 {
-  font-size: 1.22rem;
+  font-size: 1.14rem;
 }
 
 .skills-grid {
@@ -1123,13 +1123,13 @@ button {
 }
 
 .sidebar-entry h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .sidebar-entry p,
 .sidebar-entry span {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.6;
 }
 
@@ -1210,7 +1210,7 @@ button {
 
 .project-card h3,
 .catalog-card h3 {
-  font-size: 1.28rem;
+  font-size: 1.18rem;
   line-height: 1.18;
 }
 
@@ -1502,7 +1502,7 @@ button {
     justify-content: flex-start;
     white-space: normal;
     line-height: 1.1;
-    font-size: clamp(1.05rem, 5.8vw, 1.6rem);
+    font-size: clamp(1.02rem, 5.4vw, 1.48rem);
     padding: 0.72rem 1rem;
   }
 
@@ -1582,7 +1582,7 @@ button {
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(2rem, 8vw, 2.55rem);
+    font-size: clamp(1.86rem, 7.2vw, 2.35rem);
     line-height: 1.1;
   }
 
@@ -1593,7 +1593,7 @@ button {
 
   .lede {
     max-width: 100%;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.68;
   }
 
@@ -1629,7 +1629,7 @@ button {
   }
 
   .brand {
-    font-size: clamp(1rem, 6.2vw, 1.3rem);
+    font-size: clamp(0.98rem, 5.8vw, 1.22rem);
     padding: 0.68rem 0.9rem;
   }
 
@@ -1642,11 +1642,11 @@ button {
   }
 
   .portrait-copy h3 {
-    font-size: 1.24rem;
+    font-size: 1.18rem;
   }
 
   .portrait-copy p {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     line-height: 1.62;
   }
 

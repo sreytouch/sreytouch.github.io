@@ -115,7 +115,7 @@ const socialLinks = [
 ]
 
 const quickFacts = [
-  { label: 'Location', value: 'California, United States' },
+  { label: 'Location', value: 'California, United States(open to relocate)' },
   { label: 'Opportunity', value: 'Full-time or contract' },
   { label: 'Focus', value: 'Full-stack web, AI, and cloud delivery' },
   { label: 'Strength', value: 'Architecture, APIs, UI, and release ownership' }
@@ -313,8 +313,7 @@ const categoryOrder = [
   'All',
   'AI / SaaS',
   'Full-Stack Web',
-  'Frontend / React',
-  'Java / Spring'
+  'Frontend / React'
 ]
 
 const rawProjects = [
