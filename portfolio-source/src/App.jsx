@@ -110,7 +110,7 @@ const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/sreytouch' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sreytouch-lang/' },
   { label: 'Email', href: 'mailto:sreytouchjessicalang@gmail.com' },
-  { label: 'RepurposeAI', href: 'https://getrepurpose-ai.com' },
+  { label: 'AI Project', href: 'https://getrepurpose-ai.com' },
   { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/sreytouchjessic1' }
 ]
 
