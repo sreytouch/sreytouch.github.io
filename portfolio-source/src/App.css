@@ -62,7 +62,7 @@ button {
   position: relative;
   isolation: isolate;
   min-height: 100vh;
-  padding-left: 5.2rem;
+  padding-left: 4.7rem;
   background: var(--page-background);
   background-size: auto;
   background-position: center top;
@@ -123,7 +123,7 @@ button {
 
 .site-header__inner,
 .portfolio {
-  width: min(1320px, calc(100% - 2rem));
+  width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
@@ -132,15 +132,15 @@ button {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 0.9rem;
+  padding: 0.88rem 0;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.62rem 1.15rem;
+  padding: 0.56rem 1.02rem;
   border-radius: 999px;
   border: 1px solid rgba(22, 61, 143, 0.24);
   background:
@@ -149,7 +149,7 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
     0 10px 20px rgba(17, 24, 39, 0.06);
   font-family: var(--serif);
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   letter-spacing: -0.03em;
   color: var(--ink);
   font-weight: 800;
@@ -183,8 +183,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.55rem;
-  height: 2.55rem;
+  width: 2.3rem;
+  height: 2.3rem;
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -206,18 +206,18 @@ button {
 }
 
 .theme-toggle svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .side-rail {
   position: fixed;
-  left: 0.85rem;
+  left: 0.78rem;
   top: 50%;
   z-index: 30;
   display: grid;
-  gap: 0.75rem;
-  padding: 0.75rem 0.55rem;
+  gap: 0.66rem;
+  padding: 0.66rem 0.48rem;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.94));
   border-radius: 24px;
@@ -232,8 +232,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.35rem;
-  height: 3.35rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.98);
   color: #425168;
@@ -245,20 +245,20 @@ button {
 }
 
 .side-rail__link svg {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.28rem;
+  height: 1.28rem;
 }
 
 .side-rail__tooltip {
   position: absolute;
   left: calc(100% + 0.85rem);
   top: 50%;
-  padding: 0.54rem 0.88rem;
+  padding: 0.48rem 0.78rem;
   border: 1px solid rgba(22, 61, 143, 0.18);
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(242, 247, 255, 0.95));
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
@@ -426,7 +426,7 @@ button {
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.78rem;
 }
 
 .site-nav {
@@ -435,10 +435,10 @@ button {
 
 .site-nav a,
 .site-links a {
-  padding: 0.4rem 0.58rem;
+  padding: 0.32rem 0.48rem;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.74rem;
   transition:
     color 160ms ease,
     background 160ms ease;
@@ -456,16 +456,16 @@ button {
 }
 
 .portfolio {
-  padding: 1.35rem 0 3rem;
+  padding: 1.52rem 0 3.3rem;
 }
 
 .site-footer {
-  width: min(1320px, calc(100% - 2rem));
+  width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 0 0 2rem;
   text-align: center;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
 }
 
 .site-footer p {
@@ -480,7 +480,7 @@ button {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 250, 255, 0.97));
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 1.68rem;
   opacity: 0;
   transform: translateY(18px);
   animation: sectionReveal 780ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -518,7 +518,7 @@ button {
 }
 
 .section-card + .section-card {
-  margin-top: 1rem;
+  margin-top: 1.38rem;
 }
 
 .page-shell.theme-dark .section-card {
@@ -650,7 +650,7 @@ button {
     "copy portrait"
     "aside aside";
   align-items: start;
-  gap: 1.35rem;
+  gap: 1.72rem;
 }
 
 .hero-copy,
@@ -664,7 +664,7 @@ button {
 .project-card,
 .catalog-card {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 .hero-copy {
@@ -686,7 +686,7 @@ button {
 .hero-topline {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.92rem;
   flex-wrap: wrap;
 }
 
@@ -700,8 +700,8 @@ button {
 .eyebrow {
   margin: 0;
   color: var(--accent);
-  font-size: 0.76rem;
-  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
 }
 
 .status-pill,
@@ -718,10 +718,10 @@ button {
 }
 
 .status-pill {
-  padding: 0.38rem 0.72rem;
+  padding: 0.3rem 0.58rem;
   background: linear-gradient(135deg, rgba(22, 61, 143, 0.1), rgba(255, 255, 255, 0.92));
   color: var(--accent-strong);
-  font-size: 0.82rem;
+  font-size: 0.68rem;
   border: 1px solid rgba(22, 61, 143, 0.2);
 }
 
@@ -742,8 +742,8 @@ button {
 
 .hero h1 {
   max-width: 22ch;
-  font-size: clamp(1.88rem, 3.15vw, 2.72rem);
-  line-height: 1.1;
+  font-size: clamp(1.36rem, 2.34vw, 1.9rem);
+  line-height: 1.2;
 }
 
 .lede,
@@ -774,13 +774,13 @@ button {
 .contact-card h2,
 .summary-list li,
 .plain-list li {
-  line-height: 1.75;
+  line-height: 2;
 }
 
 .lede {
   margin: 0;
   max-width: 44rem;
-  font-size: 0.94rem;
+  font-size: 0.76rem;
 }
 
 .primary-link,
@@ -788,7 +788,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.92rem 1.28rem;
+  padding: 0.72rem 0.98rem;
   border-radius: 999px;
   transition:
     transform 160ms ease,
@@ -826,7 +826,7 @@ button {
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 
 .fact-card,
@@ -866,32 +866,32 @@ button {
 
 .fact-card,
 .metric-card {
-  padding: 1rem;
+  padding: 0.82rem;
 }
 
 .fact-card strong,
 .metric-card strong {
   display: block;
   color: var(--ink);
-  font-size: 1rem;
-  line-height: 1.35;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 .fact-card span,
 .metric-card span {
   display: block;
-  font-size: 0.82rem;
-  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  margin-bottom: 0.42rem;
 }
 
 .hero-skill-group {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.8rem;
 }
 
 .hero-summary-copy {
   display: grid;
-  gap: 1rem;
+  gap: 1.05rem;
 }
 
 .portrait-frame {
@@ -920,38 +920,38 @@ button {
 
 .portrait-copy {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.6rem;
 }
 
 .portrait-copy h3 {
   margin: 0;
   font-family: var(--serif);
   letter-spacing: -0.03em;
-  font-size: 1.34rem;
+  font-size: 1.1rem;
   color: var(--ink);
 }
 
 .portrait-copy p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.76rem;
+  line-height: 1.82;
 }
 
 .skill-pill-row,
 .skill-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .skill-pill,
 .skill-token {
-  padding: 0.42rem 0.76rem;
+  padding: 0.34rem 0.6rem;
   border: 1px solid rgba(30, 85, 215, 0.15);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(231, 239, 255, 0.7));
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.66rem;
   line-height: 1.15;
 }
 
@@ -967,7 +967,7 @@ button {
 
 .hero-aside {
   align-content: start;
-  padding: 1.35rem;
+  padding: 0.98rem;
   background:
     radial-gradient(circle at top right, rgba(22, 61, 143, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(243, 248, 255, 0.94));
@@ -980,30 +980,30 @@ button {
 .summary-list,
 .plain-list {
   margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 1.18rem;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.96rem;
 }
 
 .metric-card {
-  min-height: 94px;
+  min-height: 78px;
 }
 
 .metric-card strong {
-  font-size: 1.3rem;
+  font-size: 1.06rem;
   font-family: var(--serif);
 }
 
 .section-heading {
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.4rem;
+  gap: 0.92rem;
+  margin-bottom: 1.72rem;
 }
 
 .section-heading h2,
 .contact-card h2 {
-  font-size: clamp(1.34rem, 2.35vw, 1.98rem);
-  line-height: 1.18;
+  font-size: clamp(1rem, 1.62vw, 1.34rem);
+  line-height: 1.32;
   color: var(--accent-strong);
 }
 
@@ -1020,7 +1020,7 @@ button {
 .resume-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
-  gap: 1rem;
+  gap: 1.18rem;
 }
 
 .about-card,
@@ -1029,7 +1029,7 @@ button {
 .sidebar-card,
 .project-card,
 .catalog-card {
-  padding: 1.3rem;
+  padding: 1.04rem;
 }
 
 .about-card {
@@ -1076,20 +1076,21 @@ button {
 .skill-card h3,
 .experience-card h3,
 .sidebar-card h3 {
-  font-size: 1.14rem;
+  font-size: 0.88rem;
+  line-height: 1.34;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.08rem;
 }
 
 .experience-column,
 .resume-sidebar,
 .sidebar-stack {
   display: grid;
-  gap: 1rem;
+  gap: 1.08rem;
 }
 
 .experience-top,
@@ -1099,7 +1100,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 0.88rem;
 }
 
 .experience-top {
@@ -1110,15 +1111,20 @@ button {
 .role-label {
   margin: 0 0 0.2rem;
   color: var(--accent);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
 }
 
 .period-badge {
-  padding: 0.36rem 0.7rem;
+  padding: 0.26rem 0.56rem;
   background: linear-gradient(135deg, rgba(30, 85, 215, 0.12), rgba(255, 255, 255, 0.92));
   color: var(--accent-strong);
-  font-size: 0.8rem;
+  font-size: 0.66rem;
+}
+
+.entry-summary,
+.tech-line {
+  font-size: 0.76rem;
 }
 
 .tech-line strong {
@@ -1127,35 +1133,35 @@ button {
 
 .sidebar-entry {
   display: grid;
-  gap: 0.2rem;
+  gap: 0.38rem;
 }
 
 .sidebar-entry + .sidebar-entry {
-  padding-top: 0.95rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--line);
 }
 
 .sidebar-entry h4 {
-  font-size: 0.95rem;
+  font-size: 0.78rem;
 }
 
 .sidebar-entry p,
 .sidebar-entry span {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.6;
+  font-size: 0.72rem;
+  line-height: 1.9;
 }
 
 .project-grid,
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.08rem;
 }
 
 .project-card,
 .catalog-card {
-  min-height: 255px;
+  min-height: 204px;
 }
 
 .project-card {
@@ -1217,48 +1223,48 @@ button {
 
 .card-topline {
   color: var(--accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
 }
 
 .project-card h3,
 .catalog-card h3 {
-  font-size: 1.18rem;
-  line-height: 1.18;
+  font-size: 0.9rem;
+  line-height: 1.32;
 }
 
 .stack-pill {
-  padding: 0.44rem 0.76rem;
+  padding: 0.32rem 0.58rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(237, 242, 255, 0.86));
   border: 1px solid var(--line);
   color: var(--ink);
-  font-size: 0.82rem;
+  font-size: 0.66rem;
 }
 
 .repo-label {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.62rem;
 }
 
 .card-links a {
-  padding: 0.52rem 0.86rem;
+  padding: 0.38rem 0.66rem;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.9);
   color: var(--ink);
-  font-size: 0.84rem;
+  font-size: 0.7rem;
 }
 
 .archive-toolbar {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
 }
 
 .filter-row {
-  gap: 0.7rem;
+  gap: 0.78rem;
 }
 
 .filter-chip {
-  gap: 0.55rem;
-  padding: 0.75rem 0.95rem;
+  gap: 0.5rem;
+  padding: 0.6rem 0.76rem;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.9));
   color: var(--ink);
@@ -1327,15 +1333,15 @@ button {
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 1.2fr);
-  gap: 1rem;
+  gap: 1.28rem;
   align-items: center;
 }
 
 .contact-label {
-  margin: 0.35rem 0 0;
+  margin: 0.44rem 0 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.1rem;
+  font-size: 0.82rem;
 }
 
 .contact-card h2 {
@@ -1528,8 +1534,8 @@ button {
 
   .site-links a {
     flex: 0 0 auto;
-    padding: 0.46rem 0.72rem;
-    font-size: 0.86rem;
+    padding: 0.4rem 0.64rem;
+    font-size: 0.78rem;
   }
 
   .theme-toggle {
@@ -1538,7 +1544,7 @@ button {
   }
 
   .section-card {
-    padding: 1.4rem;
+    padding: 1.3rem;
     border-radius: 28px;
   }
 
@@ -1556,58 +1562,24 @@ button {
   }
 
   .side-rail {
-    position: static;
-    left: auto;
-    top: auto;
-    bottom: auto;
-    transform: none;
-    grid-auto-flow: column;
-    grid-auto-columns: max-content;
-    gap: 0.55rem;
-    padding: 0.55rem;
-    width: min(100% - 1rem, 1180px);
-    margin: 0 auto 0.85rem;
-    overflow-x: auto;
-    border-radius: 999px;
-    animation: none;
-    box-shadow: 0 14px 26px rgba(17, 24, 39, 0.12);
-    scrollbar-width: none;
-  }
-
-  .side-rail::-webkit-scrollbar {
-    display: none;
-  }
-
-  .side-rail__link {
-    width: 2.95rem;
-    height: 2.95rem;
-    flex: 0 0 auto;
-  }
-
-  .side-rail__link svg {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-
-  .side-rail__tooltip {
     display: none;
   }
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(1.86rem, 7.2vw, 2.35rem);
-    line-height: 1.1;
+    font-size: clamp(1.38rem, 5.9vw, 1.82rem);
+    line-height: 1.24;
   }
 
   .hero-topline {
     align-items: flex-start;
-    gap: 0.65rem;
+    gap: 0.8rem;
   }
 
   .lede {
     max-width: 100%;
-    font-size: 0.92rem;
-    line-height: 1.68;
+    font-size: 0.82rem;
+    line-height: 1.9;
   }
 
   .fact-grid,
@@ -1642,8 +1614,12 @@ button {
   }
 
   .brand {
-    font-size: clamp(0.96rem, 5.7vw, 1.16rem);
+    font-size: clamp(0.92rem, 5.2vw, 1.06rem);
     padding: 0.68rem 0.9rem;
+  }
+
+  .section-card {
+    padding: 1.12rem;
   }
 
   .hero-portrait-card {
@@ -1655,12 +1631,12 @@ button {
   }
 
   .portrait-copy h3 {
-    font-size: 1.18rem;
+    font-size: 1rem;
   }
 
   .portrait-copy p {
-    font-size: 0.86rem;
-    line-height: 1.62;
+    font-size: 0.78rem;
+    line-height: 1.84;
   }
 
   .site-links {
@@ -1677,8 +1653,8 @@ button {
   .site-links a {
     width: auto;
     justify-content: center;
-    font-size: 0.82rem;
-    padding: 0.42rem 0.66rem;
+    font-size: 0.74rem;
+    padding: 0.38rem 0.58rem;
   }
 
   .theme-toggle {
@@ -1686,25 +1662,31 @@ button {
     height: 2.5rem;
   }
 
-  .side-rail {
-    gap: 0.45rem;
-    padding: 0.45rem;
-    width: min(100% - 0.75rem, 1180px);
-    margin-bottom: 0.75rem;
-  }
-
-  .side-rail__link {
-    width: 2.55rem;
-    height: 2.55rem;
-  }
-
-  .side-rail__link svg {
-    width: 1.08rem;
-    height: 1.08rem;
-  }
-
   .hero-topline {
     flex-direction: column;
+  }
+
+  .section-heading {
+    margin-bottom: 1.6rem;
+  }
+
+  .section-heading h2,
+  .contact-card h2 {
+    font-size: clamp(1.02rem, 5.2vw, 1.28rem);
+  }
+
+  .about-card h3,
+  .skill-card h3,
+  .experience-card h3,
+  .sidebar-card h3,
+  .project-card h3,
+  .catalog-card h3 {
+    font-size: 0.92rem;
+  }
+
+  .summary-list,
+  .plain-list {
+    gap: 0.9rem;
   }
 
   .card-footer,
