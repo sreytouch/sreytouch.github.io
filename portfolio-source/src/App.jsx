@@ -1,913 +1,146 @@
-import { useState } from 'react'
-import profileImage from './assets/sreytouch-profile.jpg'
+import { useEffect, useRef, useState } from 'react'
+import Icon from './components/Icon'
+import ProjectPreview from './components/ProjectPreview'
+import portrait from './assets/sreytouch-profile.jpg'
+import { profile, metrics, experience, education, certifications, skillGroups } from './data/profile'
+import { featuredProjects } from './data/projects'
+import { archiveProjects } from './data/archive'
+import { personalProjects } from './data/personalProjects'
 
-const navLinks = [
-  { label: 'Home', href: '#home', icon: 'home' },
-  { label: 'About', href: '#about', icon: 'user' },
-  { label: 'Skills', href: '#skills', icon: 'stack' },
-  { label: 'Resume', href: '#resume', icon: 'file' },
-  { label: 'Projects', href: '#projects', icon: 'briefcase' },
-  { label: 'Contact', href: '#contact', icon: 'mail' }
-]
+const navigation = [['projects', 'Projects'], ['about', 'About'], ['skills', 'Skills'], ['experience', 'Experience'], ['contact', 'Contact']]
 
-function NavIcon({ icon }) {
-  const svgProps = {
-    viewBox: '0 0 24 24',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: '1.9',
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    'aria-hidden': 'true'
-  }
-
-  switch (icon) {
-    case 'home':
-      return (
-        <svg {...svgProps}>
-          <path d="M3 10.5 12 3l9 7.5" />
-          <path d="M5.5 9.5V21h13V9.5" />
-          <path d="M9.5 21v-6h5v6" />
-        </svg>
-      )
-    case 'user':
-      return (
-        <svg {...svgProps}>
-          <circle cx="12" cy="8" r="3.5" />
-          <path d="M5.5 20a6.5 6.5 0 0 1 13 0" />
-        </svg>
-      )
-    case 'stack':
-      return (
-        <svg {...svgProps}>
-          <rect x="4" y="5" width="16" height="5" rx="1.5" />
-          <rect x="4" y="14" width="16" height="5" rx="1.5" />
-          <path d="M16.5 7.5h.01M16.5 16.5h.01" />
-        </svg>
-      )
-    case 'file':
-      return (
-        <svg {...svgProps}>
-          <path d="M8 3.5h6l4 4V20a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" />
-          <path d="M14 3.5V8h4" />
-        </svg>
-      )
-    case 'briefcase':
-      return (
-        <svg {...svgProps}>
-          <path d="M4 8.5h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-10Z" />
-          <path d="M9 8.5V6.8A1.8 1.8 0 0 1 10.8 5h2.4A1.8 1.8 0 0 1 15 6.8v1.7" />
-          <path d="M4 12.5h16" />
-        </svg>
-      )
-    case 'mail':
-      return (
-        <svg {...svgProps}>
-          <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-          <path d="m4.5 7 7.5 6 7.5-6" />
-        </svg>
-      )
-    default:
-      return null
-  }
+function ExternalLink({ href, children, className = '', ...props }) {
+  return <a href={href} className={className} target="_blank" rel="noopener noreferrer" {...props}>{children}<span className="sr-only"> (opens in a new tab)</span></a>
 }
 
-function ThemeIcon({ theme }) {
-  const svgProps = {
-    viewBox: '0 0 24 24',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: '1.8',
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    'aria-hidden': 'true'
-  }
-
-  if (theme === 'dark') {
-    return (
-      <svg {...svgProps}>
-        <circle cx="12" cy="12" r="4.2" />
-        <path d="M12 2.5v2.4" />
-        <path d="M12 19.1v2.4" />
-        <path d="m5.3 5.3 1.7 1.7" />
-        <path d="m17 17 1.7 1.7" />
-        <path d="M2.5 12h2.4" />
-        <path d="M19.1 12h2.4" />
-        <path d="m5.3 18.7 1.7-1.7" />
-        <path d="M17 7l1.7-1.7" />
-      </svg>
-    )
-  }
-
-  return (
-    <svg {...svgProps}>
-      <path d="M20 15.2A7.8 7.8 0 1 1 8.8 4 6.4 6.4 0 0 0 20 15.2Z" />
-    </svg>
-  )
+function SectionHeading({ number, label, title, children }) {
+  return <div className="section-heading"><div><p className="eyebrow"><span>{number}</span> {label}</p><h2>{title}</h2></div>{children && <div className="section-description">{children}</div>}</div>
 }
 
-const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/sreytouch' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sreytouch-lang/' },
-  { label: 'Email', href: 'mailto:sreytouchjessicalang@gmail.com' },
-  { label: 'AI Project', href: 'https://getrepurpose-ai.com' },
-  { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/sreytouchjessic1' }
-]
-
-const quickFacts = [
-  { label: 'Location', value: 'California, United States(open to relocate)' },
-  { label: 'Opportunity', value: 'Full-time or contract' },
-  { label: 'Focus', value: 'Full-stack web, AI, and cloud delivery' },
-  { label: 'Strength', value: 'Architecture, APIs, UI, and release ownership' }
-]
-
-const bestSkills = [
-  'Python',
-  'Node.js',
-  'React.js',
-  'Next.js',
-  'TypeScript',
-  'Django',
-  'FastAPI',
-  'Express.js',
-  'GraphQL',
-  'PostgreSQL',
-  'MongoDB',
-  'AWS',
-  'Docker',
-  'LangChain',
-  'OpenAI API',
-  'RAG'
-]
-
-const summaryHighlights = [
-  '8+ years building and operating end-to-end platforms across Python, Node.js, React.js, Next.js, and TypeScript.',
-  'Delivered products serving 100K+ daily users and platforms handling 1M+ daily API requests across fintech, e-government, and enterprise sectors.',
-  'Built AI product features with LangChain, OpenAI, Hugging Face, RAG pipelines, NLP chatbot flows, and AWS SageMaker-based model monitoring.',
-  'Owns the full engineering cycle from system architecture and API design to responsive frontend delivery, cloud deployment, and CI/CD.'
-]
-
-const skillGroups = [
-  {
-    title: 'Frontend engineering',
-    items: [
-      'React.js',
-      'Next.js',
-      'TypeScript',
-      'Redux Toolkit',
-      'React Hooks',
-      'Tailwind CSS',
-      'HTML5 / CSS3',
-      'Angular'
-    ]
-  },
-  {
-    title: 'Backend and APIs',
-    items: [
-      'Python',
-      'Django',
-      'FastAPI',
-      'Node.js',
-      'Express.js',
-      'REST APIs',
-      'GraphQL',
-      'WebSocket',
-      'Spring Boot'
-    ]
-  },
-  {
-    title: 'AI and ML systems',
-    items: [
-      'LangChain',
-      'OpenAI API',
-      'Hugging Face',
-      'RAG architectures',
-      'Prompt engineering',
-      'TensorFlow',
-      'PyTorch',
-      'AWS SageMaker'
-    ]
-  },
-  {
-    title: 'Data and infrastructure',
-    items: [
-      'PostgreSQL',
-      'MongoDB',
-      'MySQL',
-      'DynamoDB',
-      'Elasticsearch',
-      'Redis',
-      'Kafka',
-      'RabbitMQ'
-    ]
-  },
-  {
-    title: 'Cloud and delivery',
-    items: [
-      'AWS Lambda',
-      'EC2 / S3 / CloudFront',
-      'API Gateway',
-      'CloudFormation',
-      'Docker',
-      'Kubernetes',
-      'Jenkins',
-      'GitHub Actions',
-      'TDD',
-      'Agile / Scrum'
-    ]
-  }
-]
-
-const experienceEntries = [
-  {
-    role: 'Senior Full-Stack Engineer',
-    company: 'Coinable Inc. · Palo Alto, CA(remote)',
-    period: 'Apr 2024 - Present',
-    summary:
-      'Own the full engineering stack for a greenfield fintech platform spanning frontend, backend, cloud infrastructure, and applied AI product features.',
-    bullets: [
-      'Scaled a React.js and TypeScript platform with Node.js and Python services to support 100K+ daily users with 99.9% uptime.',
-      'Improved user experience and system performance by 25% through Next.js SSR migration, API optimization, and frontend performance profiling.',
-      'Built RAG pipelines, LLM-powered dashboards, and NLP chatbot features with LangChain, OpenAI, Hugging Face, and AWS SageMaker-based monitoring.',
-      'Reduced average latency from 450ms to 85ms at peak load through API, database, and infrastructure optimization.'
-    ],
-    tech:
-      'React.js, Next.js, TypeScript, Node.js, Python, PostgreSQL, MongoDB, AWS, Docker, CloudFormation, LangChain, OpenAI'
-  },
-  {
-    role: 'Senior Software Engineer',
-    company: 'LTLabs Co., Ltd. · Remote',
-    period: 'Feb 2020 - Mar 2024',
-    summary:
-      'Re-architected and delivered full-stack platform services across Python, Node.js, React.js, Angular, and Next.js for enterprise-scale workloads.',
-    bullets: [
-      'Re-architected a legacy monolith into Python and Node.js microservices, reducing overall web response time by 18.2% and enabling per-service scaling.',
-      'Built and maintained full-stack applications serving 1M+ daily API requests across React.js, Angular, Next.js, Node.js, and Python services.',
-      'Designed real-time event pipelines with Kafka and AWS Lambda, increasing throughput by 20% and enabling sub-second search with Elasticsearch.',
-      'Led CI/CD adoption that reduced deployment steps from 12 to 3 and shortened release cycle time by 50%.'
-    ],
-    tech:
-      'React.js, Angular, Next.js, Node.js, Python, Kafka, AWS Lambda, Elasticsearch, CI/CD'
-  },
-  {
-    role: 'Software Engineer',
-    company: 'SLASH CO. INC. · Remote',
-    period: 'Apr 2017 - Feb 2020',
-    summary:
-      'Built large-scale public-sector and enterprise platforms end-to-end with secure APIs, workflow engines, and responsive web interfaces.',
-    bullets: [
-      "Engineered Cambodia's national e-licensing platform with React.js, Next.js, TypeScript, Node.js, Django, and MongoDB.",
-      'Integrated ASYCUDA customs data flows to eliminate manual reconciliation and support cross-border system interoperability.',
-      'Implemented a Spring State Machine workflow engine that reduced process error rates by 50%.',
-      'Authored OWASP-compliant REST APIs secured with OAuth2 and JWT for government-facing services.'
-    ],
-    tech:
-      'React.js, Next.js, TypeScript, Node.js, Django, MongoDB, Spring State Machine, OAuth2, JWT'
-  },
-  {
-    role: 'Junior Software Engineer',
-    company: 'Pathmazing Co., Ltd. · Phnom Penh',
-    period: 'Oct 2015 - Apr 2017',
-    summary:
-      'Contributed to banking and e-licensing platforms with early full-stack engineering work across Node.js, React.js, and Angular.',
-    bullets: [
-      'Built core banking web application features with Node.js, React.js, and Angular for thousands of daily users.',
-      'Implemented Node.js and Express-based microservices that reduced downtime by 15%.',
-      'Developed national e-licensing UI flows that helped drive 200% growth in digital adoption after launch.'
-    ],
-    tech:
-      'Node.js, Express.js, React.js, Angular, Microservices'
-  }
-]
-
-const educationEntries = [
-  {
-    degree: 'M.S. Computer & Information Science',
-    school: 'Westcliff University · Focus: Mobile Application & Applied ML/AI',
-    period: 'Feb 2025 - Mar 2027'
-  },
-  {
-    degree: 'B.S. Computer & Information Science',
-    school: 'Royal University of Phnom Penh · GPA 3.9 / 4.0',
-    period: 'Aug 2012 - Apr 2016'
-  }
-]
-
-const certificationEntries = [
-  'HackerRank Software Engineer',
-  'HackerRank Frontend Developer (React)',
-  'HackerRank SQL Advanced',
-  'HackerRank Problem Solving Intermediate',
-  'HackerRank Node.js Intermediate',
-  'HackerRank REST API Intermediate'
-]
-
-const aiFocusEntries = [
-  'CodePath AI301 · AI Open-Source Capstone',
-  'CodePath AI110 · Foundations of AI Engineering',
-  'RAG pipelines and LLM product flows',
-  'Prompt engineering and model evaluation'
-]
-
-const categoryOrder = [
-  'All',
-  'AI / SaaS',
-  'Full-Stack Web',
-  'Frontend / React'
-]
-
-const rawProjects = [
-  {
-    repo: 'repurpose-ai',
-    title: 'RepurposeAI',
-    category: 'AI / SaaS',
-    stack: 'Next.js / TypeScript / OpenAI / Vercel',
-    summary:
-      'Live personal AI SaaS that turns YouTube transcripts, podcast notes, and blog content into platform-ready posts for LinkedIn, X, Instagram, newsletters, Facebook, and Threads.',
-    href: null,
-    linkLabel: null,
-    liveHref: 'https://getrepurpose-ai.com',
-    liveLabel: 'Open live',
-    repoLabel: 'Live SaaS',
-    updatedAt: '2026-05-06',
-    featured: true
-  },
-  {
-    repo: 'Banking-Application-NextJS',
-    title: 'Banking Application NextJS',
-    category: 'Full-Stack Web',
-    stack: 'Next.js / TypeScript / Product UI',
-    summary:
-      'Banking-oriented full-stack build focused on authenticated product flows, dashboard structure, and finance-style interface composition.',
-    href: 'https://github.com/sreytouch/Banking-Application-NextJS',
-    updatedAt: '2024-09-13',
-    featured: true
-  },
-  {
-    repo: 'Chat-Application-FullStack',
-    title: 'Chat Application FullStack',
-    category: 'Full-Stack Web',
-    stack: 'JavaScript / Full-stack chat / Real-time UX',
-    summary:
-      'Full-stack chat application centered on messaging flows, room-style interaction, and real-time communication patterns.',
-    href: 'https://github.com/sreytouch/Chat-Application-FullStack',
-    updatedAt: '2024-09-13',
-    featured: true
-  },
-  {
-    repo: 'Zoom-Clone-Applicatioin',
-    title: 'Zoom Clone Application',
-    category: 'Frontend / React',
-    stack: 'TypeScript / Collaboration UI',
-    summary:
-      'Video collaboration clone exploring meeting-style layouts, real-time interface patterns, and multi-panel communication UX.',
-    href: 'https://github.com/sreytouch/Zoom-Clone-Applicatioin',
-    updatedAt: '2024-09-13',
-    featured: true
-  },
-  {
-    repo: 'e-commerce-app-fullstack',
-    title: 'Ecommerce App Fullstack',
-    category: 'Full-Stack Web',
-    stack: 'JavaScript / Ecommerce / Full-stack',
-    summary:
-      'Commerce-focused full-stack application exploring product discovery, cart flows, and customer-facing storefront interactions.',
-    href: 'https://github.com/sreytouch/e-commerce-app-fullstack',
-    updatedAt: '2024-08-25',
-    featured: true
-  },
-  {
-    repo: 'foodRecipeApp-FullStack',
-    title: 'Food Recipe App FullStack',
-    category: 'Full-Stack Web',
-    stack: 'JavaScript / Recipe platform / CRUD',
-    summary:
-      'Recipe-oriented product build combining content management, search-friendly browsing, and full-stack application structure.',
-    href: 'https://github.com/sreytouch/foodRecipeApp-FullStack',
-    updatedAt: '2024-08-25',
-    featured: true
-  },
-  {
-    repo: 'Bitcoin-React-NodeJS-App',
-    title: 'Bitcoin React NodeJS App',
-    category: 'Frontend / React',
-    stack: 'React / Node.js / Crypto dashboard',
-    summary:
-      'Market-data style application focused on crypto dashboards, price presentation, and API-connected frontend experiences.',
-    href: 'https://github.com/sreytouch/Bitcoin-React-NodeJS-App',
-    updatedAt: '2024-06-12',
-    featured: true
-  },
-  {
-    repo: 'online-learning-application',
-    title: 'Online Learning Application',
-    category: 'Full-Stack Web',
-    stack: 'JavaScript / Learning platform',
-    summary:
-      'Learning platform concept built around course-style flows, structured content, and education-focused web application patterns.',
-    href: 'https://github.com/sreytouch/online-learning-application',
-    updatedAt: '2023-10-19'
-  },
-  {
-    repo: 'book-stort-reactjs',
-    title: 'Book Store ReactJS',
-    category: 'Frontend / React',
-    stack: 'React.js / Ecommerce UI',
-    summary:
-      'React-based storefront project focused on product browsing, shopping-style flows, and practical ecommerce interface composition.',
-    href: 'https://github.com/sreytouch/book-stort-reactjs',
-    updatedAt: '2023-08-29'
-  },
-  {
-    repo: 'nike-shoes-ecommerce-app-expo',
-    title: 'Nike Shoes Ecommerce App',
-    category: 'Frontend / React',
-    stack: 'JavaScript / Expo / Ecommerce',
-    summary:
-      'Ecommerce-style shopping app built with Expo, focused on product merchandising, modern mobile commerce UI, and branded browsing flows.',
-    href: 'https://github.com/sreytouch/nike-shoes-ecommerce-app-expo',
-    updatedAt: '2023-08-16'
-  },
-  {
-    repo: 'crypto-wallet-app-starter',
-    title: 'Crypto Wallet App Starter',
-    category: 'Frontend / React',
-    stack: 'JavaScript / Wallet UI / Expo',
-    summary:
-      'Crypto wallet interface exploring account views, balance presentation, and finance-oriented mobile interaction design.',
-    href: 'https://github.com/sreytouch/crypto-wallet-app-starter',
-    updatedAt: '2023-08-16'
-  },
-  {
-    repo: 'travel-onboarding-app-expo',
-    title: 'Travel Onboarding App',
-    category: 'Frontend / React',
-    stack: 'JavaScript / Expo / Onboarding',
-    summary:
-      'Onboarding-focused travel app concept exploring first-run product flows, visual storytelling, and high-polish user introduction screens.',
-    href: 'https://github.com/sreytouch/travel-onboarding-app-expo',
-    updatedAt: '2023-08-16'
-  }
-]
-
-function formatDate(dateString, opts = { month: 'short', year: 'numeric' }) {
-  const [year, month, day] = dateString.split('-').map(Number)
-  return new Intl.DateTimeFormat('en-US', opts).format(
-    new Date(year, month - 1, day)
-  )
-}
-
-const projects = rawProjects.map((project) => ({
-  ...project,
-  updatedLabel: formatDate(project.updatedAt)
-}))
-
-const selectedProjects = projects.filter((project) => project.featured).slice(0, 6)
-
-const profileMetrics = [
-  { value: '8+', label: 'Years building products' },
-  { value: '100K+', label: 'Daily users scaled' },
-  { value: '1M+', label: 'Daily API requests served' },
-  { value: '56', label: 'Public repositories' }
-]
-
-function App() {
-  const [activeCategory, setActiveCategory] = useState('All')
-  const [theme, setTheme] = useState('dark')
-
-  const filterOptions = categoryOrder.map((category) => ({
-    label: category,
-    count:
-      category === 'All'
-        ? projects.length
-        : projects.filter((project) => project.category === category).length
-  }))
-
-  const filteredProjects =
-    activeCategory === 'All'
-      ? projects
-      : projects.filter((project) => project.category === activeCategory)
-
-  return (
-    <div className={`page-shell${theme === 'dark' ? ' theme-dark' : ''}`}>
-      <header className="site-header">
-        <div className="site-header__inner">
-          <a className="brand" href="#home">
-            Sreytouch Lang(Jessica)
-          </a>
-
-          <div className="site-links">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-              >
-                {link.label}
-              </a>
-            ))}
-
-            <button
-              type="button"
-              className="theme-toggle"
-              aria-label={
-                theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
-              }
-              title={
-                theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
-              }
-              onClick={() =>
-                setTheme((currentTheme) =>
-                  currentTheme === 'light' ? 'dark' : 'light'
-                )
-              }
-            >
-              <ThemeIcon theme={theme} />
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <nav className="side-rail" aria-label="Primary">
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            className={`side-rail__link${
-              link.href === '#home' ? ' side-rail__link--active' : ''
-            }`}
-            href={link.href}
-            aria-label={link.label}
-            title={link.label}
-          >
-            <NavIcon icon={link.icon} />
-            <span className="side-rail__tooltip" aria-hidden="true">
-              {link.label}
-            </span>
-            <span className="visually-hidden">{link.label}</span>
-          </a>
-        ))}
-      </nav>
-
-      <main className="portfolio">
-        <section id="home" className="section-card hero">
-          <div className="hero-portrait-card">
-            <div className="portrait-frame">
-              <img
-                className="portrait-image"
-                src={profileImage}
-                alt="Portrait of Sreytouch Lang(Jessica)"
-              />
-            </div>
-
-            <div className="portrait-copy">
-              <p className="eyebrow">Profile</p>
-              <h3>Sreytouch Lang(Jessica)</h3>
-              <p>
-                Senior full-stack engineer building web platforms with Python,
-                Node.js, React.js, Next.js, TypeScript, and applied AI systems.
-              </p>
-            </div>
-          </div>
-
-          <div className="hero-copy">
-            <div className="hero-topline">
-              <p className="eyebrow">Senior full-stack engineer</p>
-              <span className="status-pill">Open to work</span>
-            </div>
-
-            <h1>
-              Senior full-stack engineer specializing in Python, Node.js,
-              React.js, Next.js, TypeScript, and AI-enabled product work.
-            </h1>
-
-            <p className="lede">
-              I am a California-based(open to relocate) full-stack software
-              engineer with 8+ years of experience building end-to-end web
-              platforms across architecture, APIs, responsive UI, cloud
-              deployment, and production AI features.
-            </p>
-
-            <div className="hero-actions">
-              <a href="#projects" className="primary-link">
-                View selected projects
-              </a>
-              <a href="#contact" className="ghost-link">
-                Contact me
-              </a>
-            </div>
-
-            <div className="fact-grid">
-              {quickFacts.map((fact) => (
-                <div key={fact.label} className="fact-card">
-                  <span>{fact.label}</span>
-                  <strong>{fact.value}</strong>
-                </div>
-              ))}
-            </div>
-
-            <div className="hero-skill-group">
-              <p className="eyebrow">Best skills</p>
-              <div className="skill-pill-row">
-                {bestSkills.map((skill) => (
-                  <span key={skill} className="skill-pill">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <aside className="hero-aside">
-            <div className="hero-summary-copy">
-              <p className="eyebrow">Professional summary</p>
-              <ul className="summary-list">
-                {summaryHighlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="metric-grid">
-              {profileMetrics.map((metric) => (
-                <div key={metric.label} className="metric-card">
-                  <strong>{metric.value}</strong>
-                  <span>{metric.label}</span>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </section>
-
-        <section id="about" className="section-card">
-          <div className="section-heading">
-            <p className="eyebrow">About</p>
-            <h2>
-              Product-focused full-stack engineer with strong execution across
-              frontend systems, backend services, cloud delivery, and applied
-              AI products.
-            </h2>
-          </div>
-
-          <div className="about-grid">
-            <div className="about-copy">
-              <p>
-                I work across the full software development lifecycle, from
-                requirements and system design to backend services, frontend
-                implementation, deployment, monitoring, and iteration. My
-                strongest current work is in Python, Node.js, React.js,
-                Next.js, TypeScript, and scalable web platform engineering.
-              </p>
-              <p>
-                Alongside product engineering, I build AI-enabled workflows and
-                user-facing features including RAG pipelines, LLM dashboards,
-                content generation flows, NLP chatbot experiences, and data-
-                driven platform tools. Recent work such as RepurposeAI reflects
-                that full-stack plus AI direction clearly.
-              </p>
-            </div>
-
-            <div className="about-card">
-              <h3>What I bring</h3>
-              <ul className="plain-list">
-                <li>End-to-end ownership across architecture, APIs, frontend delivery, deployment, and production support.</li>
-                <li>Strong product execution across fintech, e-government, and enterprise platforms with real user scale.</li>
-                <li>Hands-on AI integration with RAG, prompt engineering, LLM workflows, and cloud-based model operations.</li>
-                <li>Clear engineering habits around CI/CD, performance tuning, TDD, and release readiness.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="section-card">
-          <div className="section-heading">
-            <p className="eyebrow">Skills</p>
-          </div>
-
-          <div className="skills-grid">
-            {skillGroups.map((group) => (
-              <article key={group.title} className="skill-card">
-                <h3>{group.title}</h3>
-                <div className="skill-list">
-                  {group.items.map((item) => (
-                    <span key={item} className="skill-token">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="resume" className="section-card">
-          <div className="section-heading">
-            <p className="eyebrow">Resume</p>
-            <h2>Experience, education, and selected credentials across full-stack and AI engineering.</h2>
-          </div>
-
-          <div className="resume-layout">
-            <div className="experience-column">
-              {experienceEntries.map((entry) => (
-                <article key={`${entry.company}-${entry.period}`} className="experience-card">
-                  <div className="experience-top">
-                    <div>
-                      <p className="role-label">{entry.role}</p>
-                      <h3>{entry.company}</h3>
-                    </div>
-                    <span className="period-badge">{entry.period}</span>
-                  </div>
-
-                  <p className="entry-summary">{entry.summary}</p>
-
-                  <ul className="plain-list">
-                    {entry.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-
-                  <p className="tech-line">
-                    <strong>Technologies:</strong> {entry.tech}
-                  </p>
-                </article>
-              ))}
-            </div>
-
-            <aside className="resume-sidebar">
-              <div className="sidebar-card">
-                <h3>Education</h3>
-                <div className="sidebar-stack">
-                  {educationEntries.map((entry) => (
-                    <div key={`${entry.degree}-${entry.period}`} className="sidebar-entry">
-                      <h4>{entry.degree}</h4>
-                      <p>{entry.school}</p>
-                      <span>{entry.period}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="sidebar-card">
-                <h3>Selected certifications</h3>
-                <div className="sidebar-stack">
-                  {certificationEntries.map((entry) => (
-                    <div key={entry} className="sidebar-entry">
-                      <h4>{entry}</h4>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="sidebar-card">
-                <h3>AI and learning</h3>
-                <div className="sidebar-stack">
-                  {aiFocusEntries.map((entry) => (
-                    <div key={entry} className="sidebar-entry">
-                      <h4>{entry}</h4>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section id="projects" className="section-card">
-          <div className="section-heading">
-            <p className="eyebrow">Projects</p>
-            <h2>Selected projects with the clearest signal for full-stack product work, AI capability, and end-to-end delivery.</h2>
-            <p className="section-note">
-              Focused on the public projects and live work that best reflect
-              your full-stack direction on GitHub and in your resume.
-            </p>
-          </div>
-
-          <div className="project-grid">
-            {selectedProjects.map((project) => (
-              <article key={project.repo} className="project-card">
-                <div className="card-topline">
-                  <span>{project.category}</span>
-                  <span>{project.updatedLabel}</span>
-                </div>
-
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
-
-                <div className="card-footer">
-                  <span className="stack-pill">{project.stack}</span>
-                  <div className="card-links">
-                    {project.href ? (
-                      <a href={project.href} target="_blank" rel="noreferrer">
-                        {project.linkLabel || 'Repo'}
-                      </a>
-                    ) : null}
-                    {project.liveHref ? (
-                      <a href={project.liveHref} target="_blank" rel="noreferrer">
-                        {project.liveLabel || 'Live'}
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="project-directory" className="section-card">
-          <div className="section-heading">
-            <p className="eyebrow">Project archive</p>
-            <h2>Public full-stack project directory.</h2>
-          </div>
-
-          <div className="archive-toolbar">
-            <div className="filter-row">
-              {filterOptions.map((option) => (
-                <button
-                  key={option.label}
-                  type="button"
-                  className={`filter-chip ${
-                    activeCategory === option.label ? 'filter-chip--active' : ''
-                  }`}
-                  onClick={() => setActiveCategory(option.label)}
-                >
-                  <span>{option.label}</span>
-                  <strong>{option.count}</strong>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="catalog-grid">
-            {filteredProjects.map((project) => (
-              <article key={project.repo} className="catalog-card">
-                <div className="card-topline">
-                  <span>{project.category}</span>
-                  <span>{project.updatedLabel}</span>
-                </div>
-
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
-
-                <div className="catalog-meta">
-                  <span className="stack-pill">{project.stack}</span>
-                  <span className="repo-label">{project.repoLabel || project.repo}</span>
-                </div>
-
-                <div className="card-links">
-                  {project.href ? (
-                    <a href={project.href} target="_blank" rel="noreferrer">
-                      {project.linkLabel || 'View repository'}
-                    </a>
-                  ) : null}
-                  {project.liveHref ? (
-                    <a href={project.liveHref} target="_blank" rel="noreferrer">
-                      {project.liveLabel || 'Open live'}
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="section-card contact-card">
-          <div className="contact-grid">
-            <div>
-              <p className="eyebrow">Contact</p>
-              <p className="contact-label">Open to work</p>
-            </div>
-
-            <h2>
-              Looking for a senior full-stack engineer who can take product
-              work from architecture and APIs to frontend delivery, AI
-              integration, and cloud release.
-            </h2>
-
-            <div className="contact-actions">
-              <a
-                href="mailto:sreytouchjessicalang@gmail.com"
-                className="primary-link"
-              >
-                Email me
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sreytouch-lang/"
-                className="ghost-link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="site-footer">
-        <p>© 2026 Sreytouch Lang(Jessica). All rights reserved.</p>
-      </footer>
+function SystemDiagram() {
+  const layers = [
+    { icon: 'code', label: 'Thoughtful interfaces', detail: 'React / Next.js / TypeScript', className: 'interface' },
+    { icon: 'server', label: 'Resilient backend services', detail: 'Python / FastAPI / Node.js', className: 'backend' },
+    { icon: 'ai', label: 'Intelligent applications', detail: 'LLMs / LangGraph / RAG', className: 'intelligence' },
+  ]
+  return <div className="system-visual" aria-label="Engineering focus: interfaces, backend services, AI applications, and cloud infrastructure">
+    <div className="system-topbar"><span className="window-dots"><i /><i /><i /></span><span>engineering / end-to-end</span><Icon name="code" size={14} /></div>
+    <div className="system-canvas">
+      <div className="system-caption"><span className="small-dot" /> FROM INTERFACE TO INTELLIGENCE</div>
+      {layers.map((layer, i) => <div className="system-layer-wrap" key={layer.label}>
+        {i > 0 && <div className="system-connector"><span /><Icon name="chevron" size={12} /></div>}
+        <div className={`system-layer ${layer.className}`}><div className="layer-icon"><Icon name={layer.icon} /></div><div><strong>{layer.label}</strong><span>{layer.detail}</span></div><span className="layer-index">0{i + 1}</span></div>
+      </div>)}
+      <div className="system-foundation"><span><Icon name="database" size={15} /> Data</span><span><Icon name="shield" size={15} /> Security</span><span><Icon name="cloud" size={15} /> Cloud</span></div>
     </div>
-  )
+    <div className="system-footer"><span className="small-dot" /> Designed to connect. Built to scale.</div>
+  </div>
 }
 
-export default App
+function ProjectCard({ project, index }) {
+  return <article className="project-card">
+    <div className={`project-visual project-visual--${project.id}`}>
+      <span className="project-number">0{index + 1}</span>
+      {project.image ? <ProjectPreview project={project} /> : <div className="workflow-visual" role="img" aria-label="Enterprise workflow: request, agent routing, permission-aware retrieval, approval, execution, audit trail"><div className="workflow-label"><Icon name="layers" size={15} /> AGENT ORCHESTRATION</div><div className="workflow-node"><Icon name="mail" size={15} /> Business request</div><div className="workflow-line" /><div className="workflow-node workflow-node--accent"><Icon name="ai" size={15} /> Route & retrieve</div><div className="workflow-line" /><div className="workflow-branches"><span><Icon name="shield" size={14} /> Approve</span><span><Icon name="check" size={14} /> Execute</span></div><div className="workflow-audit">Permission checks · Audit trail</div></div>}
+      <span className="visual-caption">{project.imageCaption || 'Architecture overview'}</span>
+    </div>
+    <div className="project-content"><p className="project-category">{project.category}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="project-problem"><span>THE PROBLEM</span>{project.problem}</p><ul className="capabilities">{project.capabilities.map(item => <li key={item}><Icon name="check" size={14} />{item}</li>)}</ul><div className="tags">{project.stack.map(item => <span key={item}>{item}</span>)}</div><ExternalLink className="project-link" href={project.href}><span><Icon name="github" size={17} /> Explore repository</span><Icon name="external" size={18} /></ExternalLink></div>
+  </article>
+}
+
+function PersonalProjects() {
+  return <div className="personal-project-grid">
+    {personalProjects.map(project => <article className="personal-project-card" key={project.id}>
+      <div className="personal-project-top"><span className="product-mark" aria-hidden="true">{project.mark}</span><span className="product-status"><span className="small-dot" /> Live website</span></div>
+      <p className="project-category">{project.category}</p>
+      <h3>{project.title}</h3>
+      <p className="personal-project-description">{project.description}</p>
+      <ul className="personal-project-features">{project.features.map(feature => <li key={feature}><Icon name="check" size={14} />{feature}</li>)}</ul>
+      <ExternalLink href={project.href} className="personal-project-link" aria-label={`Visit ${project.title} website (opens in a new tab)`}><span><strong>Visit website</strong><small>{project.domain}</small></span><Icon name="external" size={19} /></ExternalLink>
+    </article>)}
+  </div>
+}
+
+function ProjectArchive() {
+  const [category, setCategory] = useState('All')
+  const filtered = archiveProjects.filter(project => category === 'All' || project.category === category)
+  return <details className="archive"><summary><span><Icon name="layers" /><strong>More web projects</strong><span className="archive-count">{archiveProjects.length} projects</span></span><Icon name="chevron" /></summary><div className="archive-body"><div className="archive-filters" aria-label="Filter web projects">{['All', 'Full-stack', 'Frontend'].map(filter => <button key={filter} type="button" aria-pressed={category === filter} onClick={() => setCategory(filter)}>{filter}</button>)}</div><p className="sr-only" role="status">{filtered.length} projects shown</p><div className="archive-grid">{filtered.map(project => <ExternalLink href={project.href} className="archive-item" key={project.title}><div className="archive-item-top"><span>{project.category}</span><Icon name="external" size={18} /></div><h3>{project.title}</h3><p>{project.description}</p><span className="archive-stack">{project.stack}</span>{project.live && <span className="live-label">Visit live site</span>}</ExternalLink>)}</div></div></details>
+}
+
+export default function App() {
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark')
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+  const menuButton = useRef(null)
+  const header = useRef(null)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    try { localStorage.setItem('portfolio-theme', theme) } catch { /* Themes still work without browser storage. */ }
+  }, [theme])
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const threshold = window.innerHeight * 0.3
+      let current = 'home'
+      for (const [id] of navigation) {
+        if (document.getElementById(id)?.getBoundingClientRect().top <= threshold) current = id
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) current = 'contact'
+      setActiveSection(current)
+    }
+    updateActiveSection()
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('resize', updateActiveSection)
+    return () => { window.removeEventListener('scroll', updateActiveSection); window.removeEventListener('resize', updateActiveSection) }
+  }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    header.current?.querySelector('#primary-nav a')?.focus()
+    const onKey = event => { if (event.key === 'Escape') { setMenuOpen(false); menuButton.current?.focus() } }
+    const onOutside = event => { if (!header.current?.contains(event.target)) setMenuOpen(false) }
+    const onResize = () => { if (window.innerWidth > 760) setMenuOpen(false) }
+    window.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onOutside)
+    document.addEventListener('focusin', onOutside)
+    window.addEventListener('resize', onResize)
+    return () => { window.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onOutside); document.removeEventListener('focusin', onOutside); window.removeEventListener('resize', onResize) }
+  }, [menuOpen])
+
+  const goToSection = (event, id) => {
+    setMenuOpen(false)
+    setActiveSection(id)
+    if (menuOpen) {
+      event.preventDefault()
+      const section = document.getElementById(id)
+      section?.focus({ preventScroll: true })
+      section?.scrollIntoView()
+      window.history.replaceState(null, '', `#${id}`)
+    }
+  }
+
+  return <>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <header className="site-header" ref={header}><div className="container header-inner">
+      <a className="brand" href="#home" aria-label="Sreytouch Lang, home" onClick={() => setMenuOpen(false)}><span className="brand-mark">sl<span>.</span></span><span>Sreytouch Lang<span className="brand-alias"> / Jessica</span></span></a>
+      <nav id="primary-nav" className={`primary-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">{navigation.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={event => goToSection(event, id)}>{label}</a>)}</nav>
+      <div className="header-actions"><button className="icon-button theme-toggle" type="button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}><Icon name={theme === 'dark' ? 'sun' : 'moon'} size={19} /></button><button ref={menuButton} type="button" className="icon-button menu-toggle" aria-expanded={menuOpen} aria-controls="primary-nav" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'close' : 'menu'} /></button></div>
+    </div></header>
+    <main id="main" tabIndex="-1">
+      <section id="home" className="hero container" aria-labelledby="hero-title">
+        <div className="hero-copy"><p className="eyebrow hero-eyebrow"><span className="small-dot" /> SOFTWARE ENGINEERING · APPLIED AI</p><div className="hero-intro"><img src={portrait} alt="" width="38" height="38" /><p>Hi, I’m Sreytouch <span>(Jessica).</span></p></div><h1 id="hero-title">AI Engineer <span className="hero-amp">&</span><br />Full-Stack<br /><span className="accent-text">Software Engineer.</span></h1><p className="hero-description">I build AI-powered applications and the systems behind them—from intelligent agents and RAG pipelines to scalable APIs and thoughtful web experiences.</p><div className="hero-actions"><a href="#projects" className="button button-primary">View projects <Icon name="arrow" size={18} /></a><a href="#contact" className="button button-secondary"><Icon name="mail" size={17} /> Get in touch</a></div><div className="hero-meta"><span><Icon name="pin" size={15} /> {profile.location}</span><span className="meta-divider" /><ExternalLink href={profile.github}>GitHub <Icon name="external" size={13} /></ExternalLink><ExternalLink href={profile.linkedin}>LinkedIn <Icon name="external" size={13} /></ExternalLink></div></div>
+        <div className="hero-visual"><SystemDiagram /><div className="hero-visual-note"><span>Full-stack thinking.</span><span>From first request to production.</span></div></div>
+      </section>
+      <div className="container impact-strip" aria-label="Selected career impact">{metrics.map(metric => <div className="impact-item" key={metric.label}><strong>{metric.value}</strong><div><span>{metric.label}</span><small>{metric.context}</small></div></div>)}</div>
+      <section id="projects" className="section container" tabIndex="-1" aria-labelledby="projects-title"><div id="personal-projects"><SectionHeading number="01" label="PERSONAL PROJECTS" title={<span id="projects-title">Products I’ve built.</span>}>My independent products, from interview practice and content creation to pregnancy wellness.</SectionHeading><PersonalProjects /></div><div className="engineering-projects-heading"><p className="eyebrow">OPEN-SOURCE ENGINEERING</p><h2>Engineering in practice.</h2><p>Three recent projects exploring AI agents, retrieval systems, and full-stack workflows.</p></div><div className="project-grid">{featuredProjects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}</div><ProjectArchive /></section>
+      <section id="about" className="section about-section" tabIndex="-1" aria-labelledby="about-title"><div className="container about-grid"><div className="about-portrait"><img src={portrait} alt="Sreytouch Lang (Jessica)" width="460" height="460" loading="lazy" /><div className="portrait-caption"><strong>Sreytouch Lang</strong><span>Software engineer. Problem solver.</span></div></div><div className="about-copy"><p className="eyebrow"><span>02</span> THE ENGINEER BEHIND THE CODE</p><h2 id="about-title">The whole system.<br /><span className="muted-heading">The details that matter.</span></h2><p>{profile.summary}</p><p>My work spans fintech, enterprise platforms, and public-sector systems. I care about how the pieces fit together: clear interfaces, secure APIs, dependable data, and applications that are useful in practice.</p><div className="about-principles"><span><Icon name="layers" /> End-to-end ownership</span><span><Icon name="shield" /> Security by design</span><span><Icon name="ai" /> Applied AI</span></div><a href="#experience" className="text-link">Explore my experience <Icon name="arrow" size={17} /></a></div></div></section>
+      <section id="skills" className="section container" tabIndex="-1" aria-labelledby="skills-title"><SectionHeading number="03" label="TECHNICAL TOOLKIT" title={<span id="skills-title">Across the stack.</span>}>Tools and technologies from my professional work and public projects.</SectionHeading><div className="skills-grid">{skillGroups.map((group, index) => <article className="skill-group" key={group.title}><div className="skill-heading"><Icon name={group.icon || ['ai', 'code', 'server', 'database', 'cloud', 'layers'][index]} /><h3>{group.title}</h3></div><div className="skill-tokens">{group.skills.map(skill => <span key={skill}>{skill}</span>)}</div></article>)}</div></section>
+      <section id="experience" className="section experience-section" tabIndex="-1" aria-labelledby="experience-title"><div className="container"><SectionHeading number="04" label="PROFESSIONAL EXPERIENCE" title={<span id="experience-title">A track record of building.</span>} /><div className="timeline">{experience.map((role, index) => <article className="experience-row" key={role.company}><div className="experience-date"><span className={`timeline-dot${index === 0 ? ' current' : ''}`} /><p>{role.period}</p>{role.location && <span>{role.location}</span>}{index === 0 && <span className="current-label">CURRENT ROLE</span>}</div><div className="experience-details"><div className="experience-title"><div><h3>{role.role}</h3><p>{role.company}</p></div><span className="role-number">0{index + 1}</span></div><ul>{role.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul><div className="experience-stack">{role.stack.join(' · ')}</div></div></article>)}</div>
+        <div className="education-grid"><div><p className="eyebrow">EDUCATION</p>{education.map(item => <div className="education-item" key={item.degree}><h3>{item.degree}</h3><p>{item.school}</p><span>{item.period}</span>{item.note && <small>{item.note}</small>}</div>)}</div><div><p className="eyebrow">CERTIFICATIONS & CONTINUING LEARNING</p><ul className="certifications">{certifications.map(item => <li key={item}><Icon name="check" size={15} />{item}</li>)}</ul></div></div>
+      </div></section>
+      <section id="contact" className="section container contact-section" tabIndex="-1" aria-labelledby="contact-title"><div className="contact-top"><div><p className="eyebrow"><span>05</span> LET’S CONNECT</p><h2 id="contact-title">Good software starts<br />with a conversation<span className="accent-text">.</span></h2><p>Have an AI, full-stack, or software engineering opportunity?<br className="desktop-break" /> I’d love to hear what you’re building.</p></div></div></section>
+    </main>
+    <footer className="container site-footer"><span>© {new Date().getFullYear()} Sreytouch Lang (Jessica)</span><span>Built with React. Crafted with care.</span><a href="#home">Back to top ↑</a></footer>
+  </>
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#111b2c"/>
+      <stop offset="1" stop-color="#090e16"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop stop-color="#8aa8ff"/>
+      <stop offset="1" stop-color="#8aa8ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#surface)"/>
+  <g stroke="#243248" fill="none" opacity=".7">
+    <path d="M820 0v630M940 0v630M1060 0v630M1180 0v630M700 115h500M700 235h500M700 355h500M700 475h500M700 595h500"/>
+    <rect x="841" y="136" width="198" height="198" rx="24"/>
+    <rect x="880" y="175" width="198" height="198" rx="24"/>
+  </g>
+  <g fill="none" stroke="#8aa8ff" stroke-width="3">
+    <path d="m925 227-26 25 26 25m85-50 26 25-26 25m-31-66-23 82"/>
+  </g>
+  <rect x="64" y="64" width="48" height="48" rx="13" fill="#18263e" stroke="#3d5177"/>
+  <text x="88" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#e8eef9">SL</text>
+  <text x="132" y="95" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="3" fill="#9aadc9">ENGINEERING PORTFOLIO</text>
+  <text x="64" y="234" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-2" fill="#f3f6fc">Sreytouch Lang</text>
+  <text x="68" y="279" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#99a9c0">Jessica</text>
+  <text x="64" y="355" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="600" fill="#9cb5ff">AI Engineer &amp;</text>
+  <text x="64" y="404" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="600" fill="#e8eef9">Full-Stack Software Engineer</text>
+  <path d="M64 463h680" stroke="url(#line)"/>
+  <text x="64" y="514" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#9aadc9">AI applications. Thoughtful interfaces. Reliable systems.</text>
+  <text x="64" y="579" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#c5d0e4">sreytouch.github.io</text>
+  <circle cx="1128" cy="566" r="5" fill="#8aa8ff"/>
+</svg>

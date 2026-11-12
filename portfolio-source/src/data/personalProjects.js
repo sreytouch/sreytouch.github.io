@@ -1,0 +1,32 @@
+export const personalProjects = [
+  {
+    id: 'interview-coach',
+    title: 'AI Interview Coach',
+    mark: 'IC',
+    category: 'Career development',
+    description: 'An interview practice platform with text and voice answers, structured coaching feedback, and questions tailored to the target role.',
+    features: ['Text & voice practice', 'Structured feedback', 'Adaptive follow-ups'],
+    href: 'https://ai-interview-coach.training/',
+    domain: 'ai-interview-coach.training',
+  },
+  {
+    id: 'repurpose-ai',
+    title: 'RepurposeAI',
+    mark: 'R',
+    category: 'Content creation',
+    description: 'A creator workspace that turns transcripts and articles into social posts and newsletter drafts, with tools to refine and reuse content.',
+    features: ['Multi-platform drafts', 'Tone & hook refinement', 'Content library'],
+    href: 'https://getrepurpose-ai.com/',
+    domain: 'getrepurpose-ai.com',
+  },
+  {
+    id: 'bumpwise-ai',
+    title: 'BumpWise AI',
+    mark: 'B',
+    category: 'Pregnancy wellness',
+    description: 'A pregnancy wellness companion for organizing weekly progress, symptom and mood logs, and appointment reminders.',
+    features: ['Weekly pregnancy tracking', 'Symptom & mood logs', 'Care reminders'],
+    href: 'https://bumpwise-ai.mom/',
+    domain: 'bumpwise-ai.mom',
+  },
+]

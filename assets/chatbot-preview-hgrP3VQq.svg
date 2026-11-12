@@ -1,0 +1,78 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="120" y1="60" x2="1500" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1822"/>
+      <stop offset="1" stop-color="#0D1118"/>
+    </linearGradient>
+    <linearGradient id="panel2" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#101A24"/>
+      <stop offset="1" stop-color="#0B131C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#09111A"/>
+  <rect x="70" y="70" width="1460" height="760" fill="url(#bg2)"/>
+
+  <rect x="118" y="120" width="350" height="700" rx="30" fill="url(#panel2)" stroke="#1F3644"/>
+  <rect x="492" y="120" width="620" height="700" rx="30" fill="url(#panel2)" stroke="#1F3644"/>
+  <rect x="1136" y="120" width="346" height="700" rx="30" fill="url(#panel2)" stroke="#1F3644"/>
+
+  <text x="152" y="174" fill="#57D4E8" font-size="18" font-family="Arial, sans-serif" letter-spacing="2">KNOWLEDGE INTAKE</text>
+  <text x="152" y="220" fill="#F7F0E4" font-size="42" font-family="Georgia, serif" font-weight="700">Ingest Files</text>
+  <text x="152" y="280" fill="#D5DCE4" font-size="24" font-family="Arial, sans-serif">File Name</text>
+  <rect x="152" y="298" width="272" height="60" rx="18" fill="#0E1620" stroke="#203341"/>
+  <text x="176" y="336" fill="#98A7B4" font-size="22" font-family="Arial, sans-serif">meeting-notes-q2</text>
+  <text x="152" y="410" fill="#D5DCE4" font-size="24" font-family="Arial, sans-serif">File URL</text>
+  <rect x="152" y="428" width="272" height="60" rx="18" fill="#0E1620" stroke="#203341"/>
+  <text x="176" y="464" fill="#748594" font-size="18" font-family="Arial, sans-serif">example.com/meeting.mov</text>
+  <text x="152" y="540" fill="#D5DCE4" font-size="24" font-family="Arial, sans-serif">Local Upload</text>
+  <rect x="152" y="558" width="272" height="60" rx="18" fill="#0E1620" stroke="#203341"/>
+  <text x="176" y="596" fill="#98A7B4" font-size="22" font-family="Arial, sans-serif">support-policy.docx</text>
+  <rect x="152" y="648" width="272" height="66" rx="24" fill="#F2A556"/>
+  <text x="225" y="691" fill="#10141D" font-size="28" font-family="Arial, sans-serif" font-weight="700">Ingest File</text>
+  <rect x="152" y="724" width="272" height="76" rx="22" fill="#163347"/>
+  <text x="176" y="764" fill="#D7EEF5" font-size="17" font-family="Arial, sans-serif">Stored 18 chunks from</text>
+  <text x="176" y="788" fill="#D7EEF5" font-size="17" font-family="Arial, sans-serif">meeting-notes-q2.mov</text>
+
+  <text x="528" y="174" fill="#57D4E8" font-size="18" font-family="Arial, sans-serif" letter-spacing="2">CONVERSATION</text>
+  <text x="528" y="218" fill="#F7F0E4" font-size="42" font-family="Georgia, serif" font-weight="700">Ask the assistant</text>
+
+  <rect x="528" y="286" width="548" height="126" rx="22" fill="#232627" stroke="#424748"/>
+  <text x="556" y="316" fill="#BEC6CC" font-size="18" font-family="Arial, sans-serif" letter-spacing="1">ASSISTANT</text>
+  <text x="602" y="354" fill="#F6F7F8" font-size="19" font-family="Arial, sans-serif">Upload a file, then ask questions here.</text>
+  <text x="602" y="380" fill="#F6F7F8" font-size="19" font-family="Arial, sans-serif">Answers stay grounded in the sources</text>
+  <text x="602" y="406" fill="#F6F7F8" font-size="19" font-family="Arial, sans-serif">on the right.</text>
+
+  <rect x="678" y="438" width="398" height="96" rx="22" fill="#121B24" stroke="#203341"/>
+  <text x="704" y="458" fill="#BEC6CC" font-size="18" font-family="Arial, sans-serif" letter-spacing="1">YOU</text>
+  <text x="704" y="496" fill="#EFF3F6" font-size="19" font-family="Arial, sans-serif">Summarize the payment terms from the</text>
+  <text x="704" y="522" fill="#EFF3F6" font-size="19" font-family="Arial, sans-serif">uploaded files.</text>
+
+  <rect x="528" y="560" width="548" height="122" rx="22" fill="#18222B" stroke="#203341"/>
+  <text x="556" y="590" fill="#BEC6CC" font-size="18" font-family="Arial, sans-serif" letter-spacing="1">ASSISTANT</text>
+  <text x="556" y="626" fill="#EFF3F6" font-size="18" font-family="Arial, sans-serif">Standard invoices are due within 30 days</text>
+  <text x="556" y="650" fill="#EFF3F6" font-size="18" font-family="Arial, sans-serif">of issue date. Enterprise terms require</text>
+  <text x="556" y="674" fill="#EFF3F6" font-size="18" font-family="Arial, sans-serif">approval before extension.</text>
+
+  <text x="1172" y="174" fill="#57D4E8" font-size="18" font-family="Arial, sans-serif" letter-spacing="2">EVIDENCE</text>
+  <text x="1172" y="214" fill="#F7F0E4" font-size="34" font-family="Georgia, serif" font-weight="700">Source</text>
+  <text x="1172" y="252" fill="#F7F0E4" font-size="34" font-family="Georgia, serif" font-weight="700">Context</text>
+
+  <rect x="1172" y="286" width="274" height="118" rx="22" fill="#16212B" stroke="#203341"/>
+  <text x="1196" y="316" fill="#57D4E8" font-size="15" font-family="Arial, sans-serif" letter-spacing="1">CONVERSATION SUMMARY</text>
+  <text x="1196" y="352" fill="#ECF1F4" font-size="17" font-family="Arial, sans-serif">User is reviewing payment timing across</text>
+  <text x="1196" y="376" fill="#ECF1F4" font-size="17" font-family="Arial, sans-serif">policy text and a transcribed meeting note.</text>
+
+  <rect x="1172" y="430" width="274" height="136" rx="22" fill="#121B24" stroke="#203341"/>
+  <text x="1196" y="458" fill="#C4CCD2" font-size="14" font-family="Arial, sans-serif">SOURCE 1  -  DOCX</text>
+  <text x="1196" y="488" fill="#F6F7F8" font-size="19" font-family="Arial, sans-serif">support-policy.docx</text>
+  <text x="1196" y="516" fill="#D7DFE6" font-size="15" font-family="Arial, sans-serif">Invoices are due within 30 calendar days</text>
+  <text x="1196" y="538" fill="#D7DFE6" font-size="15" font-family="Arial, sans-serif">unless different terms are agreed</text>
+  <text x="1196" y="560" fill="#D7DFE6" font-size="15" font-family="Arial, sans-serif">in writing.</text>
+
+  <rect x="1172" y="588" width="274" height="136" rx="22" fill="#121B24" stroke="#203341"/>
+  <text x="1196" y="616" fill="#C4CCD2" font-size="14" font-family="Arial, sans-serif">SOURCE 2  -  TRANSCRIPT</text>
+  <text x="1196" y="646" fill="#F6F7F8" font-size="19" font-family="Arial, sans-serif">meeting-notes-q2.mov</text>
+  <text x="1196" y="674" fill="#D7DFE6" font-size="15" font-family="Arial, sans-serif">Enterprise customers may receive longer</text>
+  <text x="1196" y="696" fill="#D7DFE6" font-size="15" font-family="Arial, sans-serif">terms only after finance approval.</text>
+</svg>
