@@ -258,8 +258,6 @@ h2 { font-size: clamp(28px, 3.2vw, 40px); line-height: 1.18; letter-spacing: -1.
 .contact-top .eyebrow { margin-bottom: 24px; }
 .contact-top h2 { font-size: clamp(32px, 4.3vw, 52px); line-height: 1.15; letter-spacing: -2px; }
 .contact-top p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.9; margin-top: 24px; }
-.contact-email-button { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin-top: 24px; border: 1px solid var(--line); border-radius: 8px; color: var(--accent); background: var(--surface); }
-.contact-email-button:hover { background: var(--accent-bg); border-color: var(--accent); }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 26px; border-top: 1px solid var(--line); color: var(--subtle); font-size: 10px; }
 .site-footer a:hover { color: var(--accent); }
 @media (min-width: 1500px) { .hero { padding-block: 100px 90px; } }
